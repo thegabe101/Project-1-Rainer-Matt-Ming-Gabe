@@ -1,38 +1,7 @@
-// const dogBreedAPIKey = '5982d498-0ef4-4fe3-96b7-a547ee0abaf1'
+const dogBreedAPIKey = "5982d498-0ef4-4fe3-96b7-a547ee0abaf1"
 
-// var breed_id = 'https://api.thedogapi.com/v1/breeds/:breed_id'
-// var randomDogIMG =
-// 	'https://api.thedogapi.com/v1/images/search?size=med&mime_types=jpg&format=json&has_breeds=true&order=RANDOM&page=0&limit=1'
-// // var dogIMGrequestSpecificBreed = "https://api.thedogapi.com//api/v1/images/?limit=10";
-// // var getBreedID = "https://api.thedogapi.com/v1/breeds/:breed_id/";
-
-// fetch(breed_id)
-// 	.then((response) => {
-// 		if (response.ok) {
-// 			return response.json()
-// 		} else {
-// 			throw new Error('NETWORK RESPONSE ERROR')
-// 		}
-// 	})
-// 	.then((data) => {
-// 		console.log(data)
-// 		showDog(data)
-// 	})
-// 	.catch((error) => console.error('FETCH ERROR:', error))
-
-// function showDog(data) {
-// 	let newDog
-// 	if (typeof data === Array) {
-// 		newDog = data[1]
-// 	} else {
-// 		newDog = data
-// 	}
-// 	console.log(newDog)
-// 	const dogContainer = document.getElementById('container')
-// 	const dogImg = document.createElement('img')
-// 	dogImg.src = newDog.url
-// 	dogContainer.appendChild(dogImg)
-// }
+var dogBreed = 'https://dog.ceo/api/breeds/list/all'
+var imgBreed = 'https://dog.ceo/api/breed/hound/images'
 
 // function getParkApi() {
 // 	let queryURL = 'https://data.seattle.gov/resource/2cer-njie.json'
@@ -53,6 +22,27 @@
 // 		})
 // }
 
+fetch (dogBreed)
+    .then((response)=> {
+        if (response.ok) {
+            return response.json();
+        } else {
+            throw new Error ('network response error');
+        }
+    })
+    .then (data => {
+        console.log(data);
+            printDog (data)
+    })
+            .catch((error) => console.error("FETCH ERROR:", error));
+
+        function printDog(data) {
+            const breedType = data.message.corgi[0];
+            console.log(breedType);
+            const breedTypeDiv = document.getElementById("breedName");
+            breedTypeDiv.innerHTML = breedType;
+    }
+//dropdown menu for breed group
 var options
 document.addEventListener('DOMContentLoaded', function () {
 	var elems = document.querySelectorAll('.dropdown-trigger')
