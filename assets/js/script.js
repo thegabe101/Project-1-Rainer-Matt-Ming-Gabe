@@ -37,3 +37,25 @@ fetch(breed_id)
         dogImg.src = newDog.url;
         dogContainer.appendChild(dogImg);
   }
+
+function getParkApi() {
+    let queryURL = "https://data.seattle.gov/resource/2cer-njie.json"; 
+    fetch(queryURL) 
+        .then(function (response) {
+            return response.json();
+    })
+    .then(function (data) {
+        console.log(data);
+        console.log(data[0].feature_id);
+        for (let i = 0; i < 1000; i++) {
+            if (data[i].feature_id == '12') {
+                console.log(data[i].name);
+                console.log(data[i].xpos);
+                console.log(data[i].ypos);
+                
+            }
+        }   
+    });
+}
+
+getParkApi();
