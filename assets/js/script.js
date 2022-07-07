@@ -1,35 +1,39 @@
 const dogBreedAPIKey = "5982d498-0ef4-4fe3-96b7-a547ee0abaf1"
-const NPSAPIKey = "q8ZT2POs7KbwwJesIE4eQrfakQMCrWpZ2SKC75U0"
 
 
-var dogIMGrequest = 'https://api.thedogapi.com/v1/images/search?size=med&mime_types=jpg&format=json&has_breeds=true&order=RANDOM&page=0&limit=1'
-var NPSRequest = "https://developer.nps.gov/api/v1/parks?parkCode=acad&api_key=q8ZT2POs7KbwwJesIE4eQrfakQMCrWpZ2SKC75U0"
+
+var breed_id = 'https://api.thedogapi.com/v1/breeds/:breed_id';
+var randomDogIMG = 'https://api.thedogapi.com/v1/images/search?size=med&mime_types=jpg&format=json&has_breeds=true&order=RANDOM&page=0&limit=1'
+// var dogIMGrequestSpecificBreed = "https://api.thedogapi.com//api/v1/images/?limit=10";
+// var getBreedID = "https://api.thedogapi.com/v1/breeds/:breed_id/";
 
 
-function fetchData (){
-fetch(dogIMGrequest)
-.then(function (response) {
-    if (!response.ok) {
-        console.log("error retrieving data")
+fetch(breed_id)
+  .then((response) => {
+    if (response.ok) {
+      return response.json();
+    } else {
+      throw new Error("NETWORK RESPONSE ERROR");
     }
-    else return response.json();
-})
-.then(function (data) {
-    console.log(data)})
-}
-
-fetchData();
-
-function fetchData2 (){
-    fetch(NPSRequest)
-    .then(function (response) {
-        if (!response.ok) {
-            console.log("error retrieving data")
-        }
-        else return response.json();
-    })
-    .then(function (data) {
-        console.log(data)})
+  })
+  .then(data => {
+    console.log(data);
+    showDog (data) 
     }
-    
-fetchData2();
+  )
+  .catch((error) => console.error("FETCH ERROR:", error));
+
+  function showDog(data) {
+    let newDog;
+    if (typeof data===Array) {
+        newDog = data[1]
+    }
+    else {
+        newDog = data;
+    }
+        console.log(newDog);
+        const dogContainer = document.getElementById('container');
+        const dogImg = document.createElement('img');
+        dogImg.src = newDog.url;
+        dogContainer.appendChild(dogImg);
+  }
