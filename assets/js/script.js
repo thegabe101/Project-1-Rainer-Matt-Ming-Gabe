@@ -119,3 +119,72 @@ function autocomplete(inp, arr) {
   }
 
   autocomplete(document.getElementById("breedInput"), dogBreeds);
+
+
+
+
+// Wiki API matching the closest name 
+  function wikiSearchBreed(breedGroup) {
+    let url = "https://en.wikipedia.org/w/api.php?"
+    const params = {
+        action: "query",    
+        format: "json",     //requests the data in JSON format
+        list: "search",   
+        utf8: "1",      
+        srsearch: breedGroup,
+        origin: "*"
+    }
+
+    Object.keys(params).forEach((key) => {
+        url += `&${key}=${params[key]}`
+    })
+
+    fetch(url)
+    .then((response) => {
+        return response.json()
+    })
+    .then((data) => {  
+        console.log(data);
+        let search = data.query.search[0].title;
+        console.log(search);
+        fetchWikiExtract(search);
+    })
+    .catch((error) => {
+        console.log(error)
+    })
+}
+
+let dogBreed = 'golden retriever'.split(' ').join("%20");
+wikiSearchBreed(dogBreed);
+
+
+function fetchWikiExtract(param) {
+    let url = "https://en.wikipedia.org/w/api.php?";
+    const params = {
+        action: "query",    
+        format: "json",     //requests the data in JSON format
+        titles: param,
+        prop: "extracts",   //an 'extract' is the type of property being requested
+        exintro: "1",    //requests the first content from the wikipedia page    
+        explaintext: "1",
+        origin: "*"
+    }
+
+    Object.keys(params).forEach((key) => {
+        url += `&${key}=${params[key]}`
+    })
+
+fetch(url)
+    .then((response) => {
+        return response.json()
+    })
+    .then((data) => {  
+        console.log(data);
+        let pages = data.query.pages;
+        alert(Object.keys(pages).map(id => pages[id].extract));
+    })
+    .catch((error) => {
+        console.log(error)
+    })
+}
+
