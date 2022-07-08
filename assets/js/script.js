@@ -22,6 +22,7 @@ var dogBreeds = ['affenpinscher', 'african', 'airendale', 'akita', 'appenzeller'
 // 			}
 // 		})
 // }
+// getParkApi()
 
 fetch (dogBreed)
     .then((response)=> {
@@ -33,16 +34,16 @@ fetch (dogBreed)
     })
     .then (data => {
         console.log(data);
-            printDog (data)
+            // printDog (data)
     })
             .catch((error) => console.error("FETCH ERROR:", error));
 
-        function printDog(data) {
-            const breedType = data.message.corgi[0];
-            console.log(breedType);
-            const breedTypeDiv = document.getElementById("breedName");
-            breedTypeDiv.innerHTML = breedType;
-    }
+    //     function printDog(data) {
+    //         const breedType = data.message.corgi[0];
+    //         console.log(breedType);
+    //         const breedTypeDiv = document.getElementById("breedName");
+    //         breedTypeDiv.innerHTML = breedType;
+    // }
 //dropdown menu for breed group
 var options
 document.addEventListener('DOMContentLoaded', function () {
@@ -50,7 +51,6 @@ document.addEventListener('DOMContentLoaded', function () {
 	var instances = M.Dropdown.init(elems)
 })
 
-// getParkApi()
 
 function autocomplete(inp, arr) {
 	var currentFocus;
@@ -121,8 +121,6 @@ function autocomplete(inp, arr) {
   autocomplete(document.getElementById("breedInput"), dogBreeds);
 
 
-
-
 // Wiki API matching the closest name 
   function wikiSearchBreed(breedGroup) {
     let url = "https://en.wikipedia.org/w/api.php?"
@@ -154,6 +152,8 @@ function autocomplete(inp, arr) {
     })
 }
 
+// THIS IS WHAT U WANT TO PUT IN THE FUNCTION
+// dogBreedEl = whateverString .split(' ').join("%20");
 let dogBreedEl = 'golden retriever'.split(' ').join("%20");
 wikiSearchBreed(dogBreedEl);
 
