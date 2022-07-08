@@ -10,7 +10,10 @@ body {
 	justify-content: center;
 	align-items: center;
 	padding: 10px;
-	background-image: url(./Woman-and-dog-silhouette.jpg), url(./Mans-best-friend.jpg), url(./esKOS1.webp), url(./B4wkTy.jpg);
+	background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+		url(../images/Woman-and-dog-silhouette.jpg),
+		url(../images/Mans-best-friend.jpg), url(../images/esKOS1.webp),
+		url(../images/B4wkTy.jpg);
 	background-repeat: no-repeat;
 	background-position: top left, top right, bottom left, bottom right;
 }
