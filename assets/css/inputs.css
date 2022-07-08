@@ -10,7 +10,9 @@ body {
 	justify-content: center;
 	align-items: center;
 	padding: 10px;
-	background: beige;
+	background-image: url(./Woman-and-dog-silhouette.jpg), url(./Mans-best-friend.jpg), url(./esKOS1.webp), url(./B4wkTy.jpg);
+	background-repeat: no-repeat;
+	background-position: top left, top right, bottom left, bottom right;
 }
 .container {
 	max-width: 700px;
