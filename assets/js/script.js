@@ -154,8 +154,8 @@ function autocomplete(inp, arr) {
     })
 }
 
-let dogBreed = 'golden retriever'.split(' ').join("%20");
-wikiSearchBreed(dogBreed);
+let dogBreedEl = 'golden retriever'.split(' ').join("%20");
+wikiSearchBreed(dogBreedEl);
 
 
 function fetchWikiExtract(param) {
