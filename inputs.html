@@ -1,85 +1,98 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Document</title>
-		<!-- Compiled and minified CSS -->
-		<link
-			rel="stylesheet"
-			href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
-		/>
-		<link rel="stylesheet" href="./assets/css/inputs.css" />
-	</head>
-	<body>
-		<div class="container">
-			<div class="title">Build your dog</div>
-			<form action="#">
-				<div class="dog-details">
-					<div class="input-box">
-						<span class="details">User Zipcode</span>
-						<input type="text" placeholder="98105" required />
-					</div>
-					<div class="input-box">
-						<span class="details">Weight</span>
-						<input type="text" placeholder="Enter weight" required />
-					</div>
-					<div class="input-box">
-						<span class="details">Height</span>
-						<input type="text" placeholder="Enter Height" required />
-					</div>
-					<div class="input-box">
-						<span class="details">Bred For</span>
-						<input type="text" placeholder="Hunting" required />
-					</div>
-					<div class="input-box">
-						<span class="details">Lifespan</span>
-						<input type="text" placeholder="Enter Lifespan" required />
-					</div>
-					<div class="input-box">
-						<span class="details">Breed Group</span>
-						<a class="dropdown-trigger btn" href="#" data-target="dropdown1"
-							>Drop Me!</a
-						>
-
-						<!-- Dropdown Structure -->
-						<ul id="dropdown1" class="dropdown-content">
-							<li><a href="#!">one</a></li>
-							<li><a href="#!">two</a></li>
-							<li class="divider" tabindex="-1"></li>
-							<li><a href="#!">three</a></li>
-						</ul>
-					</div>
-				</div>
-				<div class="gender-details">
-					<input type="radio" name="gender" id="dot-1" />
-					<input type="radio" name="gender" id="dot-2" />
-					<input type="radio" name="gender" id="dot-3" />
-					<span class="gender-title">Gender</span>
-					<div class="category">
-						<label for="dot-1">
-							<span class="dot one"></span>
-							<span class="gender">Male</span>
-						</label>
-						<label for="dot-2">
-							<span class="dot two"></span>
-							<span class="gender">Female</span>
-						</label>
-						<label for="dot-3">
-							<span class="dot three"></span>
-							<span class="gender">I don't care</span>
-						</label>
-					</div>
-				</div>
-				<div class="button">
-					<input type="submit" value="Submit" />
-				</div>
-			</form>
-		</div>
-		<script type="text/javascript" src="jquery-3.5.1.min.js"></script>
-		<script src="./assets/js/script.js"></script>
-		<!-- Compiled and minified JavaScript -->
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-	</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- Compiled and minified CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    />
+    <link rel="stylesheet" href="./assets/css/inputs.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div>
+        <h3>Choose a breed</h3>
+        <form autocomplete="off" action="/action_page.php">
+          <div class="autocomplete" style="width: 300px">
+            <input
+              id="breedInput"
+              type="text"
+              name="breed"
+              placeholder="Enter a breed here"
+            />
+          </div>
+          <input class="breedInput" type="submit" id="breedButton" />
+        </form>
+      </div>
+      <div class="title">or build your dog</div>
+      <form action="#">
+        <div class="dog-details">
+          <div class="input-box">
+            <span class="details">User Zipcode</span>
+            <input type="text" placeholder="98105" required />
+          </div>
+          <div class="input-box">
+            <span class="details">Weight</span>
+            <input type="text" placeholder="Enter weight" required />
+          </div>
+          <div class="input-box">
+            <span class="details">Height</span>
+            <input type="text" placeholder="Enter Height" required />
+          </div>
+          <div class="input-box">
+            <span class="details">Bred For</span>
+            <input type="text" placeholder="Hunting" required />
+          </div>
+          <div class="input-box">
+            <span class="details">Lifespan</span>
+            <input type="text" placeholder="Enter Lifespan" required />
+          </div>
+          <div class="input-box">
+            <span class="details">Breed Group</span>
+            <a class="dropdown-trigger btn" href="#" data-target="dropdown1"
+              >Drop Me!</a
+            >
+            <!-- Dropdown Structure -->
+            <ul id="dropdown1" class="dropdown-content">
+              <li><a href="#!">one</a></li>
+              <li><a href="#!">two</a></li>
+              <li class="divider" tabindex="-1"></li>
+              <li><a href="#!">three</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="gender-details">
+          <input type="radio" name="gender" id="dot-1" />
+          <input type="radio" name="gender" id="dot-2" />
+          <input type="radio" name="gender" id="dot-3" />
+          <span class="gender-title">Gender</span>
+          <div class="category">
+            <label for="dot-1">
+              <span class="dot one"></span>
+              <span class="gender">Male</span>
+            </label>
+            <label for="dot-2">
+              <span class="dot two"></span>
+              <span class="gender">Female</span>
+            </label>
+            <label for="dot-3">
+              <span class="dot three"></span>
+              <span class="gender">I don't care</span>
+            </label>
+          </div>
+        </div>
+        <div class="button">
+          <input type="submit" value="Submit" />
+        </div>
+      </form>
+    </div>
+    <script type="text/javascript" src="jquery-3.5.1.min.js"></script>
+    <script src="./assets/js/script.js"></script>
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  </body>
 </html>
