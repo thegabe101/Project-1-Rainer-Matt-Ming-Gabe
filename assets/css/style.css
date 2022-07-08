@@ -10,7 +10,10 @@
 	--gray: #1d1d1d;
 	--mild: #b9b8b8;
 }
-
+.h3 {
+	text-align: left;
+	font-size: 26px;
+}
 .wrapper {
 	width: 1170px;
 	margin: auto;
