@@ -24,11 +24,31 @@ body {
 	padding: 25px 30px;
 	border-radius: 5px;
 	box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+	padding-bottom: 0;
+	padding-top: 0;
 }
+
+.container h3 {
+	text-align: left;
+	font-size: 26px;
+}
+
+.container h3::before {
+	content: '';
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	height: 3px;
+	width: 30px;
+	border-radius: 5px;
+	background: grey;
+}
+
 .container .title {
 	font-size: 25px;
 	font-weight: 500;
 	position: relative;
+	padding-bottom: 5px;
 }
 .container .title::before {
 	content: '';

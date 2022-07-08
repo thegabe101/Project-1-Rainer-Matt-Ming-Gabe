@@ -14,7 +14,21 @@
   </head>
   <body>
     <div class="container">
-      <div class="title">Build your dog</div>
+      <div>
+        <h3>Choose a breed</h3>
+        <form autocomplete="off" action="/action_page.php">
+          <div class="autocomplete" style="width: 300px">
+            <input
+              id="breedInput"
+              type="text"
+              name="breed"
+              placeholder="Enter a breed here"
+            />
+          </div>
+          <input class="breedInput" type="submit" id="breedButton" />
+        </form>
+      </div>
+      <div class="title">or build your dog</div>
       <form action="#">
         <div class="dog-details">
           <div class="input-box">
@@ -73,19 +87,6 @@
         </div>
         <div class="button">
           <input type="submit" value="Submit" />
-        </div>
-        <div>
-          <form autocomplete="off" action="/action_page.php">
-            <div class="autocomplete" style="width: 300px">
-              <input
-                id="breedInput"
-                type="text"
-                name="breed"
-                placeholder="Enter a breed here"
-              />
-            </div>
-            <input class="breedInput" type="submit" id="breedButton" />
-          </form>
         </div>
       </form>
     </div>
