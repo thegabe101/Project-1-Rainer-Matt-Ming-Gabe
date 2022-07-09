@@ -2,6 +2,7 @@ const dogBreedAPIKey = '5982d498-0ef4-4fe3-96b7-a547ee0abaf1'
 
 var dogBreed = 'https://dog.ceo/api/breeds/list/all'
 var imgBreed = 'https://dog.ceo/api/breed/hound/images'
+var postmanAPIURL = 'https://api.thedogapi.com/v1/breeds?limit=172&page=0'
 var dogBreeds = [
 	'affenpinscher',
 	'african',
@@ -120,34 +121,24 @@ var dogBreeds = [
 // 		})
 // }
 
-fetch(dogBreed)
-	.then((response) => {
-		if (response.ok) {
-			return response.json()
-		} else {
-			throw new Error('network response error')
-		}
-	})
-	.then((data) => {
-		console.log(data)
-		printDog(data)
-	})
-	.catch((error) => console.error('FETCH ERROR:', error))
+// getParkApi()
 
-function printDog(data) {
-	const breedType = data.message.corgi[0]
-	console.log(breedType)
-	const breedTypeDiv = document.getElementById('breedName')
-	breedTypeDiv.innerHTML = breedType
-}
-//dropdown menu for breed group
+fetch(postmanAPIURL)
+	.then((response) => {
+	return response.json()
+})
+.then((data) => {
+	console.log(data)
+})
+.catch((error) => {
+	console.log(error)
+})
+
 var options
 document.addEventListener('DOMContentLoaded', function () {
 	var elems = document.querySelectorAll('.dropdown-trigger')
 	var instances = M.Dropdown.init(elems)
 })
-
-// getParkApi()
 
 function autocomplete(inp, arr) {
 	var currentFocus
