@@ -24,9 +24,10 @@ function getApi() {
             localStorage.setItem("searchResult", JSON.stringify(filtered))
 
             //in other script for the new page:
-            // const resultFromStorage = JSON.parse(localStorage.getItem("searchResult"));
+            //const resultFromStorage = JSON.parse(localStorage.getItem("searchResult"));
 
             //TODO: switch over to new page.
+            window.location.href = "confirmation.html"
             //Loop over the data to generate a table, each table row will have a link to the repo url
             for (var i = 0; i < filtered.length; i++) {
                 // Creating elements, tablerow, tabledata, and anchor
