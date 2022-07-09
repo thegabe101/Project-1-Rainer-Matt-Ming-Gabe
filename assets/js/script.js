@@ -3,104 +3,7 @@ const dogBreedAPIKey = '5982d498-0ef4-4fe3-96b7-a547ee0abaf1'
 var dogBreed = 'https://dog.ceo/api/breeds/list/all'
 var imgBreed = 'https://dog.ceo/api/breed/hound/images'
 var postmanAPIURL = 'https://api.thedogapi.com/v1/breeds?limit=172&page=0'
-var dogBreeds = [
-	'affenpinscher',
-	'african',
-	'airendale',
-	'akita',
-	'appenzeller',
-	'australian',
-	'basenji',
-	'beagle',
-	'bluetick',
-	'borzoi',
-	'bouvier',
-	'boxer',
-	'brabancon',
-	'briard',
-	'buhund',
-	'bulldog',
-	'bullterrier',
-	'cattledog',
-	'chihuahua',
-	'chow',
-	'clumber',
-	'cockapoo',
-	'collie',
-	'coonhound',
-	'corgi',
-	'cotondetulear',
-	'dachshund',
-	'dalmation',
-	'dane',
-	'deerhound',
-	'dhole',
-	'dingo',
-	'doberman',
-	'elkhound',
-	'entlebucher',
-	'eskimo',
-	'finnish',
-	'frise',
-	'germanshepherd',
-	'greyhound',
-	'groenendael',
-	'havanese',
-	'hound',
-	'husky',
-	'keeshond',
-	'kelpie',
-	'komondor',
-	'kuvasz',
-	'labradoodle',
-	'labrador',
-	'leonberg',
-	'lhasa',
-	'malamute',
-	'malinois',
-	'maltese',
-	'mastiff',
-	'mexicanhairless',
-	'mix',
-	'mountain',
-	'newfoundland',
-	'otterhound',
-	'ovcharka',
-	'papillon',
-	'pekinese',
-	'pembroke',
-	'pinscher',
-	'pitbull',
-	'pointer',
-	'pomeranian',
-	'poodle',
-	'pug',
-	'puggle',
-	'pyrenees',
-	'redbone',
-	'retriever',
-	'ridgeback',
-	'rottweiler',
-	'saluki',
-	'samoyed',
-	'schipperke',
-	'schnauzer',
-	'setter',
-	'sharpei',
-	'sheepdog',
-	'shiba',
-	'shihtzu',
-	'spaniel',
-	'springer',
-	'stbernard',
-	'terrier',
-	'tervuren',
-	'vizsla',
-	'waterdog',
-	'weimaraner',
-	'whippet',
-	'wolfhound',
-]
+var dogBreeds = [ 'affenpinscher', 'african', 'airendale', 'akita', 'appenzeller', 'australian', 'basenji', 'beagle', 'bluetick', 'borzoi', 'bouvier', 'boxer', 'brabancon', 'briard', 'buhund', 'bulldog', 'bullterrier', 'cattledog', 'chihuahua', 'chow', 'clumber', 'cockapoo', 'collie', 'coonhound', 'corgi', 'cotondetulear', 'dachshund', 'dalmation', 'dane', 'deerhound', 'dhole', 'dingo', 'doberman', 'elkhound', 'entlebucher', 'eskimo', 'finnish', 'frise', 'germanshepherd', 'greyhound', 'groenendael', 'havanese', 'hound', 'husky', 'keeshond', 'kelpie', 'komondor', 'kuvasz', 'labradoodle', 'labrador', 'leonberg', 'lhasa', 'malamute', 'malinois', 'maltese', 'mastiff', 'mexicanhairless', 'mix', 'mountain', 'newfoundland', 'otterhound', 'ovcharka', 'papillon', 'pekinese', 'pembroke', 'pinscher', 'pitbull', 'pointer', 'pomeranian', 'poodle', 'pug', 'puggle', 'pyrenees', 'redbone', 'retriever', 'ridgeback', 'rottweiler', 'saluki', 'samoyed', 'schipperke', 'schnauzer', 'setter', 'sharpei', 'sheepdog', 'shiba', 'shihtzu', 'spaniel', 'springer', 'stbernard', 'terrier', 'tervuren', 'vizsla', 'waterdog', 'weimaraner', 'whippet', 'wolfhound', ]
 
 // function getParkApi() {
 // 	let queryURL = 'https://data.seattle.gov/resource/2cer-njie.json'
@@ -296,7 +199,6 @@ function autocomplete(inp, arr) {
 
 autocomplete(document.getElementById('breedInput'), dogBreeds)
 
-// Wiki API matching the closest name
 function wikiSearchBreed(breedGroup) {
 	let url = 'https://en.wikipedia.org/w/api.php?'
 	const params = {
@@ -330,6 +232,7 @@ function wikiSearchBreed(breedGroup) {
 // let dogBreedEl = 'golden retriever'.split(' ').join('%20')
 // wikiSearchBreed(dogBreedEl)
 
+// Fetches the wiki information and post the content onto the result page
 function fetchWikiExtract(param) {
 	let url = 'https://en.wikipedia.org/w/api.php?'
 	const params = {
@@ -341,11 +244,9 @@ function fetchWikiExtract(param) {
 		explaintext: '1',
 		origin: '*',
 	}
-
 	Object.keys(params).forEach((key) => {
 		url += `&${key}=${params[key]}`
 	})
-
 	fetch(url)
 		.then((response) => {
 			return response.json()
@@ -353,16 +254,16 @@ function fetchWikiExtract(param) {
 		.then((data) => {
 			console.log(data)
 			let pages = data.query.pages
-			var wikiContent = Object.keys(pages).map((id) => pages[id].extract)
-
-			// TODO; PASS WIKICONTENT TO NEW HTML AND GET A DOG IMAGE
-
-			console.log(wikiContent)
+			let wikiInfo = Object.keys(pages).map((id) => pages[id].extract)
+            console.log(wikiInfo);
+			$('#wikiContentP').text(wikiInfo.toString());
+            console.log(wikiInfo.toString());
 		})
 		.catch((error) => {
 			console.log(error)
 		})
 }
+
 document.getElementById('wikiDogBtn').addEventListener('click', function () {
 	console.log('wiki dog button pressed')
 	console.log(document.getElementById('breedInput').value)
@@ -390,159 +291,8 @@ function getRandomInt(min, max) {
 	return Math.floor(Math.random() * (max - min)) + min
 }
 
-function generateDogName() {
-	var dogName = [
-		'Abby',
-		'Ace',
-		'Addie',
-		'Adele',
-		'Annie',
-		'Apollo',
-		'Aspen',
-		'Bailey',
-		'Beamer',
-		'Bear',
-		'Belle',
-		'Bella',
-		'Birdie',
-		'Bling',
-		'Blue',
-		'Bogey',
-		'Body',
-		'Boomer',
-		'Bowen',
-		'Breeze',
-		'Brie',
-		'Brody',
-		'Buzz',
-		'Callaway',
-		'Casey',
-		'Cash',
-		'Catcher',
-		'Chaos',
-		'Chase',
-		'Chili',
-		'CiCi',
-		'Cody',
-		'Cole',
-		'Comet',
-		'Cooper',
-		'Cruise',
-		'Crush',
-		'Daisy',
-		'Dare',
-		'Dash',
-		'Dawson',
-		'Dazzle',
-		'Demi',
-		'Denali',
-		'Diva',
-		'Dixie',
-		'Echo',
-		'Eli',
-		'Ellie',
-		'Emmy',
-		'Evie',
-		'Finn',
-		'Flash',
-		'Frankie',
-		'Frisco',
-		'Gator',
-		'Georgia',
-		'Ginger',
-		'Grace',
-		'Haley',
-		'Happy',
-		'Harley',
-		'Hattie',
-		'Hope',
-		'Hunter',
-		'Indy',
-		'Jack',
-		'Jamie',
-		'Jax',
-		'Jazz',
-		'Jenna',
-		'Jersey',
-		'Jet',
-		'Jinx',
-		'JoJo',
-		'Josie',
-		'Joy',
-		'Juno',
-		'Karma',
-		'Kenzi',
-		'Kiva',
-		'Kona',
-		'Kyra',
-		'Lacie',
-		'Lark',
-		'Laser',
-		'Latte',
-		'Levi',
-		'Lilly',
-		'Linx',
-		'Logan',
-		'Lucy',
-		'Luke',
-		'Max',
-		'Mia',
-		'Mojo',
-		'Molly',
-		'Murphy',
-		'Nike',
-		'Nova',
-		'Obie',
-		'Ollie',
-		'Peach',
-		'Penny',
-		'Pepper',
-		'Piper',
-		'Prada',
-		'Ranger',
-		'Raven',
-		'Reggie',
-		'Remington',
-		'Riley',
-		'Ripley',
-		'Riot',
-		'River',
-		'Roxie',
-		'Ruby',
-		'Rumor',
-		'Salsa',
-		'Scarlett',
-		'Scout',
-		'Shadow',
-		'Shiloh',
-		'Skye',
-		'Slater',
-		'Sophie',
-		'Spark',
-		'Spencer',
-		'Spirit',
-		'Spring',
-		'Star',
-		'Storm',
-		'Strider',
-		'Summer',
-		'Tally',
-		'Tango',
-		'Tank',
-		'Taylor',
-		'Tease',
-		'Tessa',
-		'Token',
-		'Tori',
-		'Tripp',
-		'Trooper',
-		'Tucker',
-		'Tux',
-		'Whip',
-		'Wyatt',
-		'Zeke',
-		'Zip',
-	]
+function generateDogName() { 
+	var dogName = [ 'Abby', 'Ace', 'Addie', 'Adele', 'Annie', 'Apollo', 'Aspen', 'Bailey', 'Beamer', 'Bear', 'Belle', 'Bella', 'Birdie', 'Bling', 'Blue', 'Bogey', 'Body', 'Boomer', 'Bowen', 'Breeze', 'Brie', 'Brody', 'Buzz', 'Callaway', 'Casey', 'Cash', 'Catcher', 'Chaos', 'Chase', 'Chili', 'CiCi', 'Cody', 'Cole', 'Comet', 'Cooper', 'Cruise', 'Crush', 'Daisy', 'Dare', 'Dash', 'Dawson', 'Dazzle', 'Demi', 'Denali', 'Diva', 'Dixie', 'Echo', 'Eli', 'Ellie', 'Emmy', 'Evie', 'Finn', 'Flash', 'Frankie', 'Frisco', 'Gator', 'Georgia', 'Ginger', 'Grace', 'Haley', 'Happy', 'Harley', 'Hattie', 'Hope', 'Hunter', 'Indy', 'Jack', 'Jamie', 'Jax', 'Jazz', 'Jenna', 'Jersey', 'Jet', 'Jinx', 'JoJo', 'Josie', 'Joy', 'Juno', 'Karma', 'Kenzi', 'Kiva', 'Kona', 'Kyra', 'Lacie', 'Lark', 'Laser', 'Latte', 'Levi', 'Lilly', 'Linx', 'Logan', 'Lucy', 'Luke', 'Max', 'Mia', 'Mojo', 'Molly', 'Murphy', 'Nike', 'Nova', 'Obie', 'Ollie', 'Peach', 'Penny', 'Pepper', 'Piper', 'Prada', 'Ranger', 'Raven', 'Reggie', 'Remington', 'Riley', 'Ripley', 'Riot', 'River', 'Roxie', 'Ruby', 'Rumor', 'Salsa', 'Scarlett', 'Scout', 'Shadow', 'Shiloh', 'Skye', 'Slater', 'Sophie', 'Spark', 'Spencer', 'Spirit', 'Spring', 'Star', 'Storm', 'Strider', 'Summer', 'Tally', 'Tango', 'Tank', 'Taylor', 'Tease', 'Tessa', 'Token', 'Tori', 'Tripp', 'Trooper', 'Tucker', 'Tux', 'Whip', 'Wyatt', 'Zeke', 'Zip', ]
 
 	var genName = capFirst(dogName[getRandomInt(0, dogName.length + 1)]) + ' '
 	document.getElementById('random_name').innerHTML = genName
