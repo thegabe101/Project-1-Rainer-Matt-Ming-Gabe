@@ -302,6 +302,8 @@ document.getElementById('wikiDogBtn').addEventListener('click', function () {
 	}
 })
 
+
+
 //TODO: take user input on breed group 
 //TODO: fetch data
 //TODO: determine where in the array the breed group lies
