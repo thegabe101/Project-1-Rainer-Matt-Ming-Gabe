@@ -122,6 +122,43 @@ var dogBreeds = [
 // }
 
 // getParkApi()
+//TODO: Incorporate this somehow. 
+// var tableBody = document.getElementById('repo-table');
+// var fetchButton = document.getElementById('fetch-button');
+
+// function getApi() {
+//     // fetch request gets a list of all the repos for the node.js organization
+//     var postmanAPIURL = 'https://api.thedogapi.com/v1/breeds'
+
+//     fetch(postmanAPIURL)
+//         .then(function (response) {
+//             return response.json();
+//         })
+//         .then(function (data) {
+//             console.log(data)
+//             //TODO: if statement
+
+//             //Loop over the data to generate a table, each table row will have a link to the repo url
+//             for (var i = 0; i < data.length; i++) {
+//                 // Creating elements, tablerow, tabledata, and anchor
+//                 var createTableRow = document.createElement('tr');
+//                 var tableData = document.createElement('td');
+//                 var link = document.createElement('a');
+
+//                 // Setting the text of link and the href of the link
+//                 link.textContent = data[i].breed_group + " " + data[i].name + " " + data[i].life_span
+//                 // when Links get clicked on you go to results and the dog name = breedInput
+//                 //TODO: 
+//                 link.href = "https://en.wikipedia.org/wiki/" + data[i].name;
+
+//                 // Appending the link to the tabledata and then appending the tabledata to the tablerow
+//                 // The tablerow then gets appended to the tablebody
+//                 tableData.appendChild(link);
+//                 createTableRow.appendChild(tableData);
+//                 tableBody.appendChild(createTableRow);
+//             }
+//         });
+// }
 
 // var tableBody = document.getElementById('repo-table');
 // var fetchButton = document.getElementById('fetch-button');
@@ -179,7 +216,8 @@ fetch(postmanAPIURL)
 	});
 
 var options
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', function (e) {
+	e.preventDefault();
 	var elems = document.querySelectorAll('.dropdown-trigger')
 	var instances = M.Dropdown.init(elems)
 })
@@ -342,7 +380,171 @@ document.getElementById('wikiDogBtn').addEventListener('click', function () {
 	}
 })
 
+//functions for dog name generation
+function capFirst(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+}
 
+function getRandomInt(min, max) {
+  	return Math.floor(Math.random() * (max - min)) + min;
+}
+
+function generateDogName(){
+	var dogName = ['Abby',
+		'Ace',
+		'Addie',
+		'Adele',
+		'Annie',
+		'Apollo',
+		'Aspen',
+		'Bailey',
+		'Beamer',
+		'Bear',
+		'Belle',
+		'Bella',
+		'Birdie',
+		'Bling',
+		'Blue',
+		'Bogey',
+		'Body',
+		'Boomer',
+		'Bowen',
+		'Breeze',
+		'Brie',
+		'Brody',
+		'Buzz',
+		'Callaway',
+		'Casey',
+		'Cash',
+		'Catcher',
+		'Chaos',
+		'Chase',
+		'Chili',
+		'CiCi',
+		'Cody',
+		'Cole',
+		'Comet',
+		'Cooper',
+		'Cruise',
+		'Crush',
+		'Daisy',
+		'Dare',
+		'Dash',
+		'Dawson',
+		'Dazzle',
+		'Demi',
+		'Denali',
+		'Diva',
+		'Dixie',
+		'Echo',
+		'Eli',
+		'Ellie',
+		'Emmy',
+		'Evie',
+		'Finn',
+		'Flash',
+		'Frankie',
+		'Frisco',
+		'Gator',
+		'Georgia',
+		'Ginger',
+		'Grace',
+		'Haley',
+		'Happy',
+		'Harley',
+		'Hattie',
+		'Hope',
+		'Hunter',
+		'Indy',
+		'Jack',
+		'Jamie',
+		'Jax',
+		'Jazz',
+		'Jenna',
+		'Jersey',
+		'Jet',
+		'Jinx',
+		'JoJo',
+		'Josie',
+		'Joy',
+		'Juno',
+		'Karma',
+		'Kenzi',
+		'Kiva',
+		'Kona',
+		'Kyra',
+		'Lacie',
+		'Lark',
+		'Laser',
+		'Latte',
+		'Levi',
+		'Lilly',
+		'Linx',
+		'Logan',
+		'Lucy',
+		'Luke',
+		'Max',
+		'Mia',
+		'Mojo',
+		'Molly',
+		'Murphy',
+		'Nike',
+		'Nova',
+		'Obie',
+		'Ollie',
+		'Peach',
+		'Penny',
+		'Pepper',
+		'Piper',
+		'Prada',
+		'Ranger',
+		'Raven',
+		'Reggie',
+		'Remington',
+		'Riley',
+		'Ripley',
+		'Riot',
+		'River',
+		'Roxie',
+		'Ruby',
+		'Rumor',
+		'Salsa',
+		'Scarlett',
+		'Scout',
+		'Shadow',
+		'Shiloh',
+		'Skye',
+		'Slater',
+		'Sophie',
+		'Spark',
+		'Spencer',
+		'Spirit',
+		'Spring',
+		'Star',
+		'Storm',
+		'Strider',
+		'Summer',
+		'Tally',
+		'Tango',
+		'Tank',
+		'Taylor',
+		'Tease',
+		'Tessa',
+		'Token',
+		'Tori',
+		'Tripp',
+		'Trooper',
+		'Tucker',
+		'Tux',
+		'Whip',
+		'Wyatt',
+		'Zeke',
+		'Zip'];
+
+	var genName = capFirst(dogName[getRandomInt(0, dogName.length + 1)]) + ' ';
+    document.getElementById("random_name").innerHTML = genName;
+}
+//end functions for dog name generation
 
 //TODO: take user input on breed group 
 //TODO: fetch data
