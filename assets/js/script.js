@@ -199,7 +199,6 @@ function autocomplete(inp, arr) {
 
 autocomplete(document.getElementById('breedInput'), dogBreeds)
 
-// Wiki API matching the closest name
 function wikiSearchBreed(breedGroup) {
 	let url = 'https://en.wikipedia.org/w/api.php?'
 	const params = {
@@ -233,6 +232,7 @@ function wikiSearchBreed(breedGroup) {
 // let dogBreedEl = 'golden retriever'.split(' ').join('%20')
 // wikiSearchBreed(dogBreedEl)
 
+// Fetches the wiki information and post the content onto the result page
 function fetchWikiExtract(param) {
 	let url = 'https://en.wikipedia.org/w/api.php?'
 	const params = {
@@ -244,11 +244,9 @@ function fetchWikiExtract(param) {
 		explaintext: '1',
 		origin: '*',
 	}
-
 	Object.keys(params).forEach((key) => {
 		url += `&${key}=${params[key]}`
 	})
-
 	fetch(url)
 		.then((response) => {
 			return response.json()
@@ -256,11 +254,10 @@ function fetchWikiExtract(param) {
 		.then((data) => {
 			console.log(data)
 			let pages = data.query.pages
-			var wikiContent = Object.keys(pages).map((id) => pages[id].extract)
-
-			// TODO; PASS WIKICONTENT TO NEW HTML AND GET A DOG IMAGE
-			$('#wikiContent').textContent = wikiContent;
-			console.log(wikiContent)
+			let wikiInfo = Object.keys(pages).map((id) => pages[id].extract)
+            console.log(wikiInfo);
+			$('#wikiContentP').text(wikiInfo.toString());
+            console.log(wikiInfo.toString());
 		})
 		.catch((error) => {
 			console.log(error)
