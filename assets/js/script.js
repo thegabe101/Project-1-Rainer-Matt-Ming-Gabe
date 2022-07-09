@@ -123,16 +123,20 @@ var dogBreeds = [
 
 // getParkApi()
 
+const contentTag = document.getElementById('breedDoggo');
 fetch(postmanAPIURL)
-	.then((response) => {
-	return response.json()
-})
-.then((data) => {
-	console.log(data)
-})
-.catch((error) => {
-	console.log(error)
-})
+  .then(res => res.json())
+  .then(data => {
+    console.log(data)
+
+    const jsonToString = JSON.stringify(data[1].breed_group);
+    console.log('jsonToString', jsonToString);
+
+    contentTag.textContent = `
+    You have chosen a ${data[1].breed_group}!
+    `;
+    console.log("name", data[1].breed_group);
+  });
 
 var options
 document.addEventListener('DOMContentLoaded', function () {
@@ -297,3 +301,13 @@ document.getElementById('wikiDogBtn').addEventListener('click', function () {
 		document.getElementById('wikiDogBtn').appendChild(para)
 	}
 })
+
+//TODO: take user input on breed group 
+//TODO: fetch data
+//TODO: determine where in the array the breed group lies
+//TODO: run against array and compare and load dog 
+
+
+
+
+
