@@ -160,8 +160,6 @@ var dogBreeds = [
 //         });
 // }
 
-fetchButton.addEventListener('click', getApi);
-
 const contentTag = document.getElementById('breedDoggo');
 fetch(postmanAPIURL)
 	.then(res => res.json())
