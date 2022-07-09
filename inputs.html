@@ -1,18 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+	<head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>BuildYourDog</title>
     <!-- Compiled and minified CSS -->
     <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
     />
     <link rel="stylesheet" href="./assets/css/inputs.css" />
-  </head>
-  <body>
+	</head>
+	<body>
+	<div class="container">
+    <div class="nameGen title" id="nameGenerator">Choose a Breed & Generate Name!</div>
+      <input id="nameGenBtn" type="button" value="Names for your doggo!" onclick="generateDogName();" />
+      <h3 id="random_name"></h3>
+      <div>
+        <h3>Choose a breed</h3>
+        <form autocomplete="off" action="/action_page.php">
+          <div class="autocomplete" style="width: 300px">
+            <input
+              id="breedInput"
+              type="text"
+              name="breed"
+              placeholder="Enter a breed here"
+            />
+          </div>
+          <div class="button" id="wikiDogBtn">
+            <input type="button" value="Submit" />
+          </div>
+        </form>
+      </div>
+    </div>
+    <h1>OR</h1>
     <div class="container">
       <div class="title">Build Your Dog</div>
       <form action="#">
@@ -23,23 +45,24 @@
 				<input type="radio" name="dog size" id="dot-2" />
 				<input type="radio" name="dog size" id="dot-3" />
 				<div class="category">
-				  <label for="dot-1">
-					  <span class="dot one"></span>
-					  <span class="gender">Small</span>
-				  </label>
-				    <label for="dot-2">
-					  <span class="dot two"></span>
-					  <span class="gender">Medium</span>
-				  </label>
-				  <label for="dot-3">
-					  <span class="dot three"></span>
-					  <span class="gender">Large</span>
-				  </label>
+
+				<label for="dot-1">
+					<span class="dot one"></span>
+					<span class="gender">Small</span>
+				</label>
+				<label for="dot-2">
+					<span class="dot two"></span>
+					<span class="gender">Medium</span>
+				</label>
+				<label for="dot-3">
+					<span class="dot three"></span>
+					<span class="gender">Large</span>
+				</label>
 				</div>
-			  <div class="slider">
-				  <p>Lifespan Expectancy</p>
-				  <input type="range" name="rangeslide" id="lifespan" min="7" max="20" value="10" class="slider">
-			  </div>
+			<div class="slider">
+				<p>Lifespan Expectancy</p>
+				<input type="range" name="rangeslide" id="lifespan" min="7" max="20" value="10" class="slider">
+			</div>
         <div class="input-box">
           <span class="details">Breed Group</span>
           <a class="dropdown-trigger btn" href="#" data-target="dropdown1">Drop Me!</a>
@@ -63,27 +86,6 @@
         <input type="button" value="Submit" />
       </div>
       </form>
-    </div>
-    <div class="container">
-      <div class="nameGen" id="nameGenerator">Click the button to generate a name for your dog!</div>
-      <input id="nameGenBtn" type="button" value="Names for your doggo!" onclick="generateDogName();" />
-      <h2 id="random_name"></h2>
-      <div>
-        <h3>Choose a breed</h3>
-        <form autocomplete="off" action="/action_page.php">
-          <div class="autocomplete" style="width: 300px">
-            <input
-              id="breedInput"
-              type="text"
-              name="breed"
-              placeholder="Enter a breed here"
-            />
-          </div>
-          <div class="button" id="wikiDogBtn">
-            <input type="button" value="Submit" />
-          </div>
-        </form>
-      </div>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="./assets/js/script.js"></script>
