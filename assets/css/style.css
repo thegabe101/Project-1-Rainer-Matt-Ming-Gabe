@@ -51,6 +51,7 @@ header {
 	float: left;
 	height: auto;
 	border-radius: 50px;
+	margin-top:25px;
 }
 .welcome-text {
 	position: absolute;
