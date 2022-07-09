@@ -122,7 +122,7 @@ var dogBreeds = [
 // }
 
 // getParkApi()
-//TODO: Incorporate this somehow. 
+//TODO: Incorporate this somehow.
 // var tableBody = document.getElementById('repo-table');
 // var fetchButton = document.getElementById('fetch-button');
 
@@ -148,7 +148,7 @@ var dogBreeds = [
 //                 // Setting the text of link and the href of the link
 //                 link.textContent = data[i].breed_group + " " + data[i].name + " " + data[i].life_span
 //                 // when Links get clicked on you go to results and the dog name = breedInput
-//                 //TODO: 
+//                 //TODO:
 //                 link.href = "https://en.wikipedia.org/wiki/" + data[i].name;
 
 //                 // Appending the link to the tabledata and then appending the tabledata to the tablerow
@@ -185,7 +185,7 @@ var dogBreeds = [
 //                 // Setting the text of link and the href of the link
 //                 link.textContent = data[i].breed_group + " " + data[i].name + " " + data[i].life_span
 //                 // when Links get clicked on you go to results and the dog name = breedInput
-//                 //TODO: 
+//                 //TODO:
 //                 link.href = "https://en.wikipedia.org/wiki/" + data[i].name;
 
 //                 // Appending the link to the tabledata and then appending the tabledata to the tablerow
@@ -197,27 +197,26 @@ var dogBreeds = [
 //         });
 // }
 
-fetchButton.addEventListener('click', getApi);
+//fetchButton.addEventListener('click', getApi)
 
-
-const contentTag = document.getElementById('breedDoggo');
+const contentTag = document.getElementById('breedDoggo')
 fetch(postmanAPIURL)
-	.then(res => res.json())
-	.then(data => {
+	.then((res) => res.json())
+	.then((data) => {
 		console.log(data)
 
-		const jsonToString = JSON.stringify(data[1].breed_group);
-		console.log('jsonToString', jsonToString);
+		const jsonToString = JSON.stringify(data[1].breed_group)
+		console.log('jsonToString', jsonToString)
 
 		contentTag.textContent = `
     You have chosen a ${data[1].breed_group}!
-    `;
-		console.log("name", data[1].breed_group);
-	});
+    `
+		console.log('name', data[1].breed_group)
+	})
 
 var options
 document.addEventListener('DOMContentLoaded', function (e) {
-	e.preventDefault();
+	e.preventDefault()
 	var elems = document.querySelectorAll('.dropdown-trigger')
 	var instances = M.Dropdown.init(elems)
 })
@@ -225,6 +224,7 @@ document.addEventListener('DOMContentLoaded', function (e) {
 function autocomplete(inp, arr) {
 	var currentFocus
 	inp.addEventListener('input', function (e) {
+		console.log('in input')
 		var a,
 			b,
 			i,
@@ -253,6 +253,7 @@ function autocomplete(inp, arr) {
 		}
 	})
 	inp.addEventListener('keydown', function (e) {
+		console.log('in keydown')
 		var x = document.getElementById(this.id + 'autocomplete-list')
 		if (x) x = x.getElementsByTagName('div')
 		if (e.keyCode == 40) {
@@ -382,15 +383,16 @@ document.getElementById('wikiDogBtn').addEventListener('click', function () {
 
 //functions for dog name generation
 function capFirst(string) {
-    return string.charAt(0).toUpperCase() + string.slice(1);
+	return string.charAt(0).toUpperCase() + string.slice(1)
 }
 
 function getRandomInt(min, max) {
-  	return Math.floor(Math.random() * (max - min)) + min;
+	return Math.floor(Math.random() * (max - min)) + min
 }
 
-function generateDogName(){
-	var dogName = ['Abby',
+function generateDogName() {
+	var dogName = [
+		'Abby',
 		'Ace',
 		'Addie',
 		'Adele',
@@ -539,19 +541,15 @@ function generateDogName(){
 		'Whip',
 		'Wyatt',
 		'Zeke',
-		'Zip'];
+		'Zip',
+	]
 
-	var genName = capFirst(dogName[getRandomInt(0, dogName.length + 1)]) + ' ';
-    document.getElementById("random_name").innerHTML = genName;
+	var genName = capFirst(dogName[getRandomInt(0, dogName.length + 1)]) + ' '
+	document.getElementById('random_name').innerHTML = genName
 }
 //end functions for dog name generation
 
-//TODO: take user input on breed group 
+//TODO: take user input on breed group
 //TODO: fetch data
 //TODO: determine where in the array the breed group lies
-//TODO: run against array and compare and load dog 
-
-
-
-
-
+//TODO: run against array and compare and load dog
