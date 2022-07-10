@@ -5,7 +5,7 @@ var imgBreed = 'https://dog.ceo/api/breed/hound/images'
 var postmanAPIURL = 'https://api.thedogapi.com/v1/breeds?limit=172&page=0'
 var dogBreeds = [ 'affenpinscher', 'african', 'airendale', 'akita', 'appenzeller', 'australian', 'basenji', 'beagle', 'bluetick', 'borzoi', 'bouvier', 'boxer', 'brabancon', 'briard', 'buhund', 'bulldog', 'bullterrier', 'cattledog', 'chihuahua', 'chow', 'clumber', 'cockapoo', 'collie', 'coonhound', 'corgi', 'cotondetulear', 'dachshund', 'dalmatian', 'dane', 'deerhound', 'dhole', 'dingo', 'doberman', 'elkhound', 'entlebucher', 'eskimo', 'finnish', 'frise', 'germanshepherd', 'greyhound', 'groenendael', 'havanese', 'hound', 'husky', 'keeshond', 'kelpie', 'komondor', 'kuvasz', 'labradoodle', 'labrador', 'leonberg', 'lhasa', 'malamute', 'malinois', 'maltese', 'mastiff', 'mexicanhairless', 'mix', 'mountain', 'newfoundland', 'otterhound', 'ovcharka', 'papillon', 'pekinese', 'pembroke', 'pinscher', 'pitbull', 'pointer', 'pomeranian', 'poodle', 'pug', 'puggle', 'pyrenees', 'redbone', 'retriever', 'ridgeback', 'rottweiler', 'saluki', 'samoyed', 'schipperke', 'schnauzer', 'setter', 'sharpei', 'sheepdog', 'shiba', 'shihtzu', 'spaniel', 'springer', 'stbernard', 'terrier', 'tervuren', 'vizsla', 'waterdog', 'weimaraner', 'whippet', 'wolfhound', ]
 
-const contentTag = document.getElementById('breedDoggo')
+
 // fetch(postmanAPIURL)
 // 	.then((res) => res.json())
 // 	.then((data) => {
@@ -13,10 +13,6 @@ const contentTag = document.getElementById('breedDoggo')
 
 // 		const jsonToString = JSON.stringify(data[1].breed_group)
 // 		console.log('jsonToString', jsonToString)
-
-// 		contentTag.textContent = `You have chosen a ${data[1].breed_group}!`
-// 		console.log('name', data[1].breed_group)
-// 	})
 
 var options
 document.addEventListener('DOMContentLoaded', function (e) {
