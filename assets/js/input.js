@@ -46,7 +46,7 @@ function getApi() {
             var chosenBreed = localStorage.getItem('breed_value')
             console.log(cleanedData);
             // var filtered = cleanedData.filter(breed => breed.breed_group.toLowerCase().includes(chosenBreed) && parseInt(breed.life_span) > 7)
-            var filtered = cleanedData.filter(breed => breed.breed_group.toLowerCase().includes(chosenBreed))
+            var filtered = cleanedData.filter(breed => breed.breed_group.toLowerCase().includes(chosenBreed) && parseInt(breed.weight.imperial) > 84 && parseInt(breed.life_span) > 8)
             console.log(cleanedData.filter(breed => breed.breed_group))
             console.log(chosenBreed);
             console.log(filtered);
