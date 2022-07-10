@@ -3,7 +3,7 @@ var fetchButton = document.getElementById('fetch-button');
 
 function getApi() {
 
-    
+
     // fetch request gets a list of all the repos for the node.js organization
     var postmanAPIURL = 'https://api.thedogapi.com/v1/breeds'
 
@@ -16,32 +16,48 @@ function getApi() {
             //TODO: if statement
             // TODO: Remember to have .includes(contain user input variable.)
 
-            function findRadioBreedValue () {
-            var breeds = document.getElementsByName('group1');
-            var breed_value;
-            for(i = 0; i < breeds.length; i++) {
-                if (breeds[i].checked){
-                    console.log("breeds[i]: "+breeds[i])
-                    breed_value = breeds[i].value
-                    console.log("CHOSEN ONE: "+breed_value);
-                    localStorage.setItem('breed_value', breed_value.toLowerCase())
+            function findRadioBreedValue() {
+                var breeds = document.getElementsByName('group1');
+                var breed_value;
+                for (i = 0; i < breeds.length; i++) {
+                    if (breeds[i].checked) {
+                        console.log("breeds[i]: " + breeds[i])
+                        breed_value = breeds[i].value
+                        console.log("CHOSEN ONE: " + breed_value);
+                        localStorage.setItem('breed_value', breed_value.toLowerCase())
+                    }
                 }
-            }
             }
 
             findRadioBreedValue();
 
             function findDogSizeValue() {
                 var dogSize = document.getElementById('doggoSize');
-                var dogSizeValue = dogSize.options[dogSize.selectedIndex].value;
-                console.log(dogSizeValue)
-            }
+                // change dogSizeValue to dogSizeValueCategory ex. small med large -MHH 7/10/2022
+                var dogSizeValueCategory = dogSize.options[dogSize.selectedIndex].value;
+                console.log(dogSizeValueCategory)
+                // added variable dogSizeValueInteger to hold number value -MHH 10:23 c
+                var dogSizeValueInteger
+                if (dogSizeValueCategory == "Small") {
+                    dogSizeValueInteger = 15;
+                    console.log(dogSizeValueInteger)
+                }
 
+            }
             findDogSizeValue();
+
+            //FUNCTION Added 10:03 Am 7/10/2022 will test. -MH
+            function findDogLifeSpan() {
+                var dogLifeSpanEl = document.getElementById('dogLifeSpanSlider'); // added ID to HTML SLIDER -MH 7/10/2022
+                var dogLifeSpanValue = dogLifeSpanEl.value
+                console.log("Your dog will live at least " + dogLifeSpanValue + " years")
+                localStorage.setItem('breed_life_span', dogLifeSpanValue)
+            }
+            findDogLifeSpan()
 
             var cleanedData = data.filter(group => group.breed_group)
             for (let i = 0; i < cleanedData.length; i++) {
-                console.log(cleanedData[i].breed_group)   
+                console.log(cleanedData[i].breed_group)
             }
             var chosenBreed = localStorage.getItem('breed_value')
             console.log(cleanedData);
