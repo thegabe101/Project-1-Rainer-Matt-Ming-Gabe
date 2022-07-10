@@ -275,6 +275,7 @@ form .button input:hover {
 }
 
 .slider {
+	margin-top: 40px;
 	-webkit-appearance: none; 
 	appearance: none;
 	width: 100%; 
@@ -334,6 +335,12 @@ form .button input:hover {
   
   #nameGenBtn:active {
 	transform: scale(0.95);
+  }
+
+  #or {
+	color: white;
+	text-shadow: #F09819 3px;
+	text-decoration: underline 2px;
   }
 
 @media (min-width: 768px) {

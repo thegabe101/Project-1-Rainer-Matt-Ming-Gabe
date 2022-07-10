@@ -1,7 +1,6 @@
 var tableBody = document.getElementById('repo-table');
 var fetchButton = document.getElementById('fetch-button');
 
-
 function getApi() {
 
     
@@ -32,6 +31,14 @@ function getApi() {
 
             findRadioBreedValue();
 
+            function findDogSizeValue() {
+                var dogSize = document.getElementById('doggoSize');
+                var dogSizeValue = dogSize.options[dogSize.selectedIndex].value;
+                console.log(dogSizeValue)
+            }
+
+            findDogSizeValue();
+
             var cleanedData = data.filter(group => group.breed_group)
             for (let i = 0; i < cleanedData.length; i++) {
                 console.log(cleanedData[i].breed_group)   
@@ -48,7 +55,7 @@ function getApi() {
             localStorage.setItem("searchResult", JSON.stringify(filtered))
 
             //in other script for the new page:
-            //const resultFromStorage = JSON.parse(localStorage.getItem("searchResult"));
+            const resultFromStorage = JSON.parse(localStorage.getItem("searchResult"));
 
             //TODO: switch over to new page.
             // window.location.href = "confirmation.html"
@@ -75,6 +82,11 @@ function getApi() {
             }
         });
 }
+
+document.addEventListener('DOMContentLoaded', function () {
+    var elems = document.querySelectorAll('select');
+    var instances = M.FormSelect.init(elems, options);
+});
 
 
 
