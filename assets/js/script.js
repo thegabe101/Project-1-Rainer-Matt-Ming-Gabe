@@ -102,20 +102,20 @@ var dogBreeds = [ 'affenpinscher', 'african', 'airendale', 'akita', 'appenzeller
 
 //fetchButton.addEventListener('click', getApi)
 
-const contentTag = document.getElementById('breedDoggo')
-fetch(postmanAPIURL)
-	.then((res) => res.json())
-	.then((data) => {
-		console.log(data)
+// const contentTag = document.getElementById('breedDoggo')
+// fetch(postmanAPIURL)
+// 	.then((res) => res.json())
+// 	.then((data) => {
+// 		console.log(data)
 
-		const jsonToString = JSON.stringify(data[1].breed_group)
-		console.log('jsonToString', jsonToString)
+// 		const jsonToString = JSON.stringify(data[1].breed_group)
+// 		console.log('jsonToString', jsonToString)
 
-		contentTag.textContent = `
-    You have chosen a ${data[1].breed_group}!
-    `
-		console.log('name', data[1].breed_group)
-	})
+// 		contentTag.textContent = `
+//     You have chosen a ${data[1].breed_group}!
+//     `
+// 		console.log('name', data[1].breed_group)
+// 	})
 
 var options
 document.addEventListener('DOMContentLoaded', function (e) {
