@@ -28,33 +28,24 @@
       </form>
     </div>
   </div>
-  <h1>OR</h1>
+  <h1 id="or">OR</h1>
   <div class="container">
     <div class="title">Build Your Dog</div>
     <form action="/confirmation.html" method="POST">
       <div class="dog-details">
         <div>
-          <span id="dog-size">Dog size</span>
-          <input type="radio" name="dog size" id="dot-1" />
-          <input type="radio" name="dog size" id="dot-2" />
-          <input type="radio" name="dog size" id="dot-3" />
-          <div class="category">
-
-            <label for="dot-1">
-              <span class="dot one"></span>
-              <span class="gender">Small</span>
-            </label>
-            <label for="dot-2">
-              <span class="dot two"></span>
-              <span class="gender">Medium</span>
-            </label>
-            <label for="dot-3">
-              <span class="dot three"></span>
-              <span class="gender">Large</span>
-            </label>
+          <div class="input-field col s12">
+            <h3>Dog Size</h3>
+            <select id="doggoSize">
+              <option value="" disabled selected>Choose your option</option>
+              <option value="Small">Small</option>
+              <option value="Medium">Medium</option>
+              <option value="Large">Large</option>
+            </select>
+            <label></label>
           </div>
           <div class="slider">
-            <p>Lifespan Expectancy</p>
+            <p>Minimum Lifespan Expectancy</p>
             <input type="range" name="rangeslide" id="lifespan" min="7" max="20" value="10" class="slider">
           </div>
           <div class="input-box">
