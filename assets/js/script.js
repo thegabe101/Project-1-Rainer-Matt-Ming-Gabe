@@ -3,119 +3,20 @@ const dogBreedAPIKey = '5982d498-0ef4-4fe3-96b7-a547ee0abaf1'
 var dogBreed = 'https://dog.ceo/api/breeds/list/all'
 var imgBreed = 'https://dog.ceo/api/breed/hound/images'
 var postmanAPIURL = 'https://api.thedogapi.com/v1/breeds?limit=172&page=0'
-var dogBreeds = [ 'affenpinscher', 'african', 'airendale', 'akita', 'appenzeller', 'australian', 'basenji', 'beagle', 'bluetick', 'borzoi', 'bouvier', 'boxer', 'brabancon', 'briard', 'buhund', 'bulldog', 'bullterrier', 'cattledog', 'chihuahua', 'chow', 'clumber', 'cockapoo', 'collie', 'coonhound', 'corgi', 'cotondetulear', 'dachshund', 'dalmation', 'dane', 'deerhound', 'dhole', 'dingo', 'doberman', 'elkhound', 'entlebucher', 'eskimo', 'finnish', 'frise', 'germanshepherd', 'greyhound', 'groenendael', 'havanese', 'hound', 'husky', 'keeshond', 'kelpie', 'komondor', 'kuvasz', 'labradoodle', 'labrador', 'leonberg', 'lhasa', 'malamute', 'malinois', 'maltese', 'mastiff', 'mexicanhairless', 'mix', 'mountain', 'newfoundland', 'otterhound', 'ovcharka', 'papillon', 'pekinese', 'pembroke', 'pinscher', 'pitbull', 'pointer', 'pomeranian', 'poodle', 'pug', 'puggle', 'pyrenees', 'redbone', 'retriever', 'ridgeback', 'rottweiler', 'saluki', 'samoyed', 'schipperke', 'schnauzer', 'setter', 'sharpei', 'sheepdog', 'shiba', 'shihtzu', 'spaniel', 'springer', 'stbernard', 'terrier', 'tervuren', 'vizsla', 'waterdog', 'weimaraner', 'whippet', 'wolfhound', ]
-
-// function getParkApi() {
-// 	let queryURL = 'https://data.seattle.gov/resource/2cer-njie.json'
-// 	fetch(queryURL)
-// 		.then(function (response) {
-// 			return response.json()
-// 		})
-// 		.then(function (data) {
-// 			console.log(data)
-// 			console.log(data[0].feature_id)
-// 			for (let i = 0; i < 1000; i++) {
-// 				if (data[i].feature_id == '12') {
-// 					console.log(data[i].name)
-// 					console.log(data[i].xpos)
-// 					console.log(data[i].ypos)
-// 				}
-// 			}
-// 		})
-// }
-
-// getParkApi()
-//TODO: Incorporate this somehow.
-// var tableBody = document.getElementById('repo-table');
-// var fetchButton = document.getElementById('fetch-button');
-
-// function getApi() {
-//     // fetch request gets a list of all the repos for the node.js organization
-//     var postmanAPIURL = 'https://api.thedogapi.com/v1/breeds'
-
-//     fetch(postmanAPIURL)
-//         .then(function (response) {
-//             return response.json();
-//         })
-//         .then(function (data) {
-//             console.log(data)
-//             //TODO: if statement
-
-//             //Loop over the data to generate a table, each table row will have a link to the repo url
-//             for (var i = 0; i < data.length; i++) {
-//                 // Creating elements, tablerow, tabledata, and anchor
-//                 var createTableRow = document.createElement('tr');
-//                 var tableData = document.createElement('td');
-//                 var link = document.createElement('a');
-
-//                 // Setting the text of link and the href of the link
-//                 link.textContent = data[i].breed_group + " " + data[i].name + " " + data[i].life_span
-//                 // when Links get clicked on you go to results and the dog name = breedInput
-//                 //TODO:
-//                 link.href = "https://en.wikipedia.org/wiki/" + data[i].name;
-
-//                 // Appending the link to the tabledata and then appending the tabledata to the tablerow
-//                 // The tablerow then gets appended to the tablebody
-//                 tableData.appendChild(link);
-//                 createTableRow.appendChild(tableData);
-//                 tableBody.appendChild(createTableRow);
-//             }
-//         });
-// }
-
-// var tableBody = document.getElementById('repo-table');
-// var fetchButton = document.getElementById('fetch-button');
-
-// function getApi() {
-//     // fetch request gets a list of all the repos for the node.js organization
-//     var postmanAPIURL = 'https://api.thedogapi.com/v1/breeds'
-
-//     fetch(postmanAPIURL)
-//         .then(function (response) {
-//             return response.json();
-//         })
-//         .then(function (data) {
-//             console.log(data)
-//             //TODO: if statement
-
-//             //Loop over the data to generate a table, each table row will have a link to the repo url
-//             for (var i = 0; i < data.length; i++) {
-//                 // Creating elements, tablerow, tabledata, and anchor
-//                 var createTableRow = document.createElement('tr');
-//                 var tableData = document.createElement('td');
-//                 var link = document.createElement('a');
-
-//                 // Setting the text of link and the href of the link
-//                 link.textContent = data[i].breed_group + " " + data[i].name + " " + data[i].life_span
-//                 // when Links get clicked on you go to results and the dog name = breedInput
-//                 //TODO:
-//                 link.href = "https://en.wikipedia.org/wiki/" + data[i].name;
-
-//                 // Appending the link to the tabledata and then appending the tabledata to the tablerow
-//                 // The tablerow then gets appended to the tablebody
-//                 tableData.appendChild(link);
-//                 createTableRow.appendChild(tableData);
-//                 tableBody.appendChild(createTableRow);
-//             }
-//         });
-// }
-
-//fetchButton.addEventListener('click', getApi)
+var dogBreeds = [ 'affenpinscher', 'african', 'airendale', 'akita', 'appenzeller', 'australian', 'basenji', 'beagle', 'bluetick', 'borzoi', 'bouvier', 'boxer', 'brabancon', 'briard', 'buhund', 'bulldog', 'bullterrier', 'cattledog', 'chihuahua', 'chow', 'clumber', 'cockapoo', 'collie', 'coonhound', 'corgi', 'cotondetulear', 'dachshund', 'dalmatian', 'dane', 'deerhound', 'dhole', 'dingo', 'doberman', 'elkhound', 'entlebucher', 'eskimo', 'finnish', 'frise', 'germanshepherd', 'greyhound', 'groenendael', 'havanese', 'hound', 'husky', 'keeshond', 'kelpie', 'komondor', 'kuvasz', 'labradoodle', 'labrador', 'leonberg', 'lhasa', 'malamute', 'malinois', 'maltese', 'mastiff', 'mexicanhairless', 'mix', 'mountain', 'newfoundland', 'otterhound', 'ovcharka', 'papillon', 'pekinese', 'pembroke', 'pinscher', 'pitbull', 'pointer', 'pomeranian', 'poodle', 'pug', 'puggle', 'pyrenees', 'redbone', 'retriever', 'ridgeback', 'rottweiler', 'saluki', 'samoyed', 'schipperke', 'schnauzer', 'setter', 'sharpei', 'sheepdog', 'shiba', 'shihtzu', 'spaniel', 'springer', 'stbernard', 'terrier', 'tervuren', 'vizsla', 'waterdog', 'weimaraner', 'whippet', 'wolfhound', ]
 
 const contentTag = document.getElementById('breedDoggo')
-fetch(postmanAPIURL)
-	.then((res) => res.json())
-	.then((data) => {
-		console.log(data)
+// fetch(postmanAPIURL)
+// 	.then((res) => res.json())
+// 	.then((data) => {
+// 		console.log(data)
 
-		const jsonToString = JSON.stringify(data[1].breed_group)
-		console.log('jsonToString', jsonToString)
+// 		const jsonToString = JSON.stringify(data[1].breed_group)
+// 		console.log('jsonToString', jsonToString)
 
-		contentTag.textContent = `
-    You have chosen a ${data[1].breed_group}!
-    `
-		console.log('name', data[1].breed_group)
-	})
+// 		contentTag.textContent = `You have chosen a ${data[1].breed_group}!`
+// 		console.log('name', data[1].breed_group)
+// 	})
 
 var options
 document.addEventListener('DOMContentLoaded', function (e) {
@@ -195,11 +96,20 @@ function autocomplete(inp, arr) {
 	document.addEventListener('click', function (e) {
 		closeAllLists(e.target)
 	})
+} 
+// This Checks if ID breedInput is available then do the autocomplete
+if (document.getElementById('breedInput')) {
+	autocomplete(document.getElementById('breedInput'), dogBreeds)
 }
-
-autocomplete(document.getElementById('breedInput'), dogBreeds)
-
+//breedgROUP = TEXT
 function wikiSearchBreed(breedGroup) {
+	// localStorage.setItem('breed',breedGroup);
+	breedGroup = breedGroup.split(' ').join('%20') +('(dog)')
+	console.log(breedGroup)
+	var searchWikiImage = breedGroup.replace('(dog)','');
+	console.log(searchWikiImage)
+	localStorage.setItem('breed',searchWikiImage);
+	console.log("IT WORKS");
 	let url = 'https://en.wikipedia.org/w/api.php?'
 	const params = {
 		action: 'query',
@@ -222,6 +132,7 @@ function wikiSearchBreed(breedGroup) {
 			console.log(data)
 			let search = data.query.search[0].title
 			console.log(search)
+			localStorage.setItem("title", search);
 			fetchWikiExtract(search)
 		})
 		.catch((error) => {
@@ -234,6 +145,7 @@ function wikiSearchBreed(breedGroup) {
 
 // Fetches the wiki information and post the content onto the result page
 function fetchWikiExtract(param) {
+	
 	let url = 'https://en.wikipedia.org/w/api.php?'
 	const params = {
 		action: 'query',
@@ -256,31 +168,38 @@ function fetchWikiExtract(param) {
 			let pages = data.query.pages
 			let wikiInfo = Object.keys(pages).map((id) => pages[id].extract)
             console.log(wikiInfo);
-			$('#wikiContentP').text(wikiInfo.toString());
+			//  $('#wikiContentP').text(wikiInfo.toString());
             console.log(wikiInfo.toString());
+			resultWikiText = wikiInfo.toString();
+			localStorage.setItem('wiki', resultWikiText)
+			window.location.href= 'results.html'
 		})
 		.catch((error) => {
 			console.log(error)
 		})
 }
+// If choose a breed form exist, goes to result page and execute wikipedia search
+if (document.getElementById('wikiDogBtn')) {
+	document.getElementById('wikiDogBtn').addEventListener('click', function () {
+		console.log('wiki dog button pressed')
+		console.log(document.getElementById('breedInput').value)
+		//if else check for breed name
+		var text = document.getElementById('breedInput').value
+	
+		if (dogBreeds.includes(text)) {
+			console.log('NAISUU')
+			//go get to the result page
+			localStorage.setItem('breed',text)
+			wikiSearchBreed(text)
+		} else {
+			console.log('idiot')
+			const para = document.createElement('p')
+			para.innerHTML = 'NOT IN ARRAY'
+			document.getElementById('wikiDogBtn').appendChild(para)
+		}
+	})
+}
 
-document.getElementById('wikiDogBtn').addEventListener('click', function () {
-	console.log('wiki dog button pressed')
-	console.log(document.getElementById('breedInput').value)
-	//if else check for breed name
-	var text = document.getElementById('breedInput').value
-
-	if (dogBreeds.includes(text)) {
-		console.log('NAISUU')
-		wikiSearchBreed(text)
-		//
-	} else {
-		console.log('idiot')
-		const para = document.createElement('p')
-		para.innerHTML = 'NOT IN ARRAY'
-		document.getElementById('wikiDogBtn').appendChild(para)
-	}
-})
 
 //functions for dog name generation
 function capFirst(string) {
