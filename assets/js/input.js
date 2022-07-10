@@ -17,30 +17,31 @@ function getApi() {
             //TODO: if statement
             // TODO: Remember to have .includes(contain user input variable.)
 
-            function findRadioBreedValue2 () {
+            function findRadioBreedValue () {
             var breeds = document.getElementsByName('group1');
             var breed_value;
             for(i = 0; i < breeds.length; i++) {
                 if (breeds[i].checked){
+                    console.log("breeds[i]: "+breeds[i])
                     breed_value = breeds[i].value
-                    console.log(breed_value);
-                    localStorage.setItem('breed_value', breed_value)
+                    console.log("CHOSEN ONE: "+breed_value);
+                    localStorage.setItem('breed_value', breed_value.toLowerCase())
                 }
             }
             }
 
-            findRadioBreedValue2();
+            findRadioBreedValue();
 
-
-            var asdf = localStorage.getItem('breed_value')
             var cleanedData = data.filter(group => group.breed_group)
             for (let i = 0; i < cleanedData.length; i++) {
                 console.log(cleanedData[i].breed_group)   
             }
+            var chosenBreed = localStorage.getItem('breed_value')
             console.log(cleanedData);
-            // var filtered = cleanedData.filter(breed => breed.breed_group.toLowerCase().includes(asdf) && parseInt(breed.life_span) > 7)
-            var filtered = cleanedData.filter(breed => breed.breed_group.toLowerCase().includes("working"))
-            console.log(asdf);
+            // var filtered = cleanedData.filter(breed => breed.breed_group.toLowerCase().includes(chosenBreed) && parseInt(breed.life_span) > 7)
+            var filtered = cleanedData.filter(breed => breed.breed_group.toLowerCase().includes(chosenBreed))
+            console.log(cleanedData.filter(breed => breed.breed_group))
+            console.log(chosenBreed);
             console.log(filtered);
 
             // TODO: Save information for next page to see.
