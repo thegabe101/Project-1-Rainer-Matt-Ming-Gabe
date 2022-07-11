@@ -18,12 +18,18 @@ header {
 	position: relative;
 }
 
+#cardContainer {
+	display: grid;
+	grid-template-columns: repeat(2, minmax(200px, 1fr));
+	grid-gap: 2px;
+}
+
 .contact-text {
 	position: absolute;
 	width: 600px;
 	height: 300px;
-    margin-left: 60%;
-    margin-top: 10%;
+    margin-left: 27%;
+    margin-top: 5%;
     color: white;
 }
 .contact-text h1 {
@@ -33,3 +39,39 @@ header {
 	font-size: 60px;
 }
 
+h1 {
+	color: white;
+	font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+	font-weight: lighter;
+}
+
+#college {
+	color: white;
+	font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.card {
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+	max-width: 300px;
+	margin: auto;
+	text-align: center;
+	padding: 10px;
+  }
+  
+.title {
+	color: white;
+	font-size: 18px;
+	font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+	padding: 10px;
+  }
+  
+
+a {
+	text-decoration: none;
+	font-size: 22px;
+	color: black;
+  }
+  
+button:hover, a:hover {
+	opacity: 0.7;
+  }

@@ -16,205 +16,217 @@ var dogTemperamentsArray = ['active', 'adaptable', 'affectionate', 'aggressive',
 
 var options
 document.addEventListener('DOMContentLoaded', function (e) {
-	e.preventDefault()
-	var elems = document.querySelectorAll('.dropdown-trigger')
-	var instances = M.Dropdown.init(elems)
+	e.preventDefault();
+	var elems = document.querySelectorAll('.dropdown-trigger');
+	var instances = M.Dropdown.init(elems);
+
 })
 
-function autocomplete(inp, arr) {
-	var currentFocus
+function autocompvare(inp, arr) {
+	var currentFocus;
 	inp.addEventListener('input', function (e) {
-		console.log('in input')
+		console.log('in input');
 		var a,
 			b,
 			i,
 			val = this.value
-		closeAllLists()
+		closeAllLists();
 		if (!val) {
-			return false
+			return false;
 		}
-		currentFocus = -1
-		a = document.createElement('div')
-		a.setAttribute('id', this.id + 'autocomplete-list')
-		a.setAttribute('class', 'autocomplete-items')
-		this.parentNode.appendChild(a)
+		currentFocus = -1;
+		a = document.createElement('div');
+		a.setAttribute('id', this.id + 'autocompvare-list');
+		a.setAttribute('class', 'autocompvare-items');
+		this.parentNode.appendChild(a);
 		for (i = 0; i < arr.length; i++) {
 			if (arr[i].substr(0, val.length).toUpperCase() == val.toUpperCase()) {
-				b = document.createElement('div')
-				b.innerHTML = '<strong>' + arr[i].substr(0, val.length) + '</strong>'
-				b.innerHTML += arr[i].substr(val.length)
-				b.innerHTML += "<input type='hidden' value='" + arr[i] + "'>"
+				b = document.createElement('div');
+				b.innerHTML = '<strong>' + arr[i].substr(0, val.length) + '</strong>';
+				b.innerHTML += arr[i].substr(val.length);
+				b.innerHTML += "<input type='hidden' value='" + arr[i] + "'>";
 				b.addEventListener('click', function (e) {
-					inp.value = this.getElementsByTagName('input')[0].value
-					closeAllLists()
+					inp.value = this.getElementsByTagName('input')[0].value;
+					closeAllLists();
 				})
-				a.appendChild(b)
+				a.appendChild(b);
+
 			}
 		}
 	})
 	inp.addEventListener('keydown', function (e) {
-		console.log('in keydown')
-		var x = document.getElementById(this.id + 'autocomplete-list')
-		if (x) x = x.getElementsByTagName('div')
+		console.log('in keydown');
+		var x = document.getElementById(this.id + 'autocompvare-list')
+		if (x) x = x.getElementsByTagName('div');
 		if (e.keyCode == 40) {
-			currentFocus++
-			addActive(x)
+			currentFocus++;
+			addActive(x);
 		} else if (e.keyCode == 38) {
-			currentFocus--
-			addActive(x)
+			currentFocus--;
+			addActive(x);
 		} else if (e.keyCode == 13) {
-			e.preventDefault()
+			e.preventDefault();
 			if (currentFocus > -1) {
-				if (x) x[currentFocus].click()
+				if (x) x[currentFocus].click();
 			}
 		}
 	})
 	function addActive(x) {
-		if (!x) return false
+		if (!x) return false;
 		removeActive(x)
-		if (currentFocus >= x.length) currentFocus = 0
-		if (currentFocus < 0) currentFocus = x.length - 1
-		x[currentFocus].classList.add('autocomplete-active')
+		if (currentFocus >= x.length) currentFocus = 0;
+		if (currentFocus < 0) currentFocus = x.length - 1;
+		x[currentFocus].classList.add('autocompvare-active');
+
 	}
 	function removeActive(x) {
 		for (var i = 0; i < x.length; i++) {
-			x[i].classList.remove('autocomplete-active')
+			x[i].classList.remove('autocompvare-active');
 		}
 	}
 	function closeAllLists(elmnt) {
-		var x = document.getElementsByClassName('autocomplete-items')
+		var x = document.getElementsByClassName('autocompvare-items');
 		for (var i = 0; i < x.length; i++) {
 			if (elmnt != x[i] && elmnt != inp) {
-				x[i].parentNode.removeChild(x[i])
+				x[i].parentNode.removeChild(x[i]);
 			}
 		}
 	}
 	document.addEventListener('click', function (e) {
-		closeAllLists(e.target)
+		closeAllLists(e.target);
 	})
 } 
-// This Checks if ID breedInput is available then do the autocomplete
+// This Checks if ID breedInput is available then do the autocompvare
+// Autocompvare function will only run in inputs.html
 if (document.getElementById('breedInput')) {
-	autocomplete(document.getElementById('breedInput'), dogBreeds)
+	autocompvare(document.getElementById('breedInput'), dogBreeds);
 }
+
+
+// If choose a breed form exist, goes to result page and execute wikipedia search
+if (document.getElementById('wikiDogBtn')) {
+	// Choose a breed form function
+	document.getElementById('wikiDogBtn').addEventListener('click', function () {
+		var text = document.getElementById('breedInput').value;
+		// if else check if the dogBreeds array includes user input text
+		if (dogBreeds.includes(text)) {
+			// localStorage value under key breed
+			localStorage.setItem('breed',text)
+			// Runs the wikipedia function 
+			wikiSearchBreed(text);
+		} else {
+			var paragraph = document.createElement('p');
+			paragraph.innerHTML = 'NOT IN ARRAY';
+			document.getElementById('wikiDogBtn').appendChild(paragraph);
+		}
+	})
+}
+
+// search the dog breed group's name in wikipedia search list, and stores in breed group's name for random image in result page.
 
 if (document.getElementById('temperamentInput')) {
 	autocomplete(document.getElementById('temperamentInput'), dogTemperamentsArray)
 }
 //breedgROUP = TEXT
+
 function wikiSearchBreed(breedGroup) {
-	// localStorage.setItem('breed',breedGroup);
-	breedGroup = breedGroup.split(' ').join('%20') +('(dog)')
-	console.log(breedGroup)
+	// the dog breed group's name will have %20 between spacing (wiki requirement), and add (dog) for precision
+	breedGroup = breedGroup.split(' ').join('%20') +('(dog)');
+	console.log(breedGroup);
+	// searchWikiImage stores in the breed group's name
 	var searchWikiImage = breedGroup.replace('(dog)','');
-	console.log(searchWikiImage)
+	console.log(searchWikiImage);
+	// store searchWikiImage value for random image in result page
 	localStorage.setItem('breed',searchWikiImage);
-	console.log("IT WORKS");
-	let url = 'https://en.wikipedia.org/w/api.php?'
+
+	// url = https://en.wikipedia.org/w/api.php?action=query&format=json&list=search&utf8=1&srsearch=${'breedGroup'}&origin=*
+	var url = 'https://en.wikipedia.org/w/api.php?'
 	const params = {
 		action: 'query',
 		format: 'json', //requests the data in JSON format
-		list: 'search',
+		list: 'search', //forms a search list of the given srsearch
 		utf8: '1',
-		srsearch: breedGroup,
-		origin: '*',
-	}
+		srsearch: breedGroup, // searches for page titles or content matching this value.
+		origin: '*',	//required  
+	};
 
+	// for the object params, place '&' before object key, and '=' before the object value
 	Object.keys(params).forEach((key) => {
-		url += `&${key}=${params[key]}`
+		url += `&${key}=${params[key]}`;
 	})
-
 	fetch(url)
 		.then((response) => {
-			return response.json()
+			return response.json();
 		})
 		.then((data) => {
-			console.log(data)
-			let search = data.query.search[0].title
-			console.log(search)
+			console.log(data);
+			var search = data.query.search[0].title;
+			console.log(search);
+			// store localStorage value of the first wiki title appeared in search list
 			localStorage.setItem("title", search);
-			fetchWikiExtract(search)
+			// go to function 
+			fetchWikiExtract(search);
 		})
 		.catch((error) => {
-			console.log(error)
+			console.log(error);
 		})
 }
 
-// let dogBreedEl = 'golden retriever'.split(' ').join('%20')
-// wikiSearchBreed(dogBreedEl)
-
 // Fetches the wiki information and post the content onto the result page
-function fetchWikiExtract(param) {
-	
-	let url = 'https://en.wikipedia.org/w/api.php?'
+function fetchWikiExtract(wikiTitle) {
+	// url = https://en.wikipedia.org/w/api.php?action=query&format=json&titles=${'param'}&prop=extracts&exintro=1&explaintext=1&origin=*
+	var url = 'https://en.wikipedia.org/w/api.php?'
 	const params = {
 		action: 'query',
 		format: 'json', //requests the data in JSON format
-		titles: param,
+		titles: wikiTitle,
 		prop: 'extracts', //an 'extract' is the type of property being requested
 		exintro: '1', //requests the first content from the wikipedia page
 		explaintext: '1',
 		origin: '*',
-	}
+	};
+	// for the object params, place '&' before object key, and '=' before the object value
 	Object.keys(params).forEach((key) => {
-		url += `&${key}=${params[key]}`
+		url += `&${key}=${params[key]}`;
 	})
 	fetch(url)
 		.then((response) => {
-			return response.json()
+			return response.json();
 		})
 		.then((data) => {
-			console.log(data)
-			let pages = data.query.pages
-			let wikiInfo = Object.keys(pages).map((id) => pages[id].extract)
-            console.log(wikiInfo);
-			//  $('#wikiContentP').text(wikiInfo.toString());
+			console.log(data);
+			var pages = data.query.pages;
+			// wikiInfo stores in the first content from the wikipedia page
+			var wikiInfo = Object.keys(pages).map((id) => pages[id].extract);
             console.log(wikiInfo.toString());
+			// convert to string type
 			resultWikiText = wikiInfo.toString();
-			localStorage.setItem('wiki', resultWikiText)
-			window.location.href= 'results.html'
+			// localStorage the wikipedia content for result page
+			localStorage.setItem('wiki', resultWikiText);
+			// go to results.html page
+			window.location.href= 'results.html';
 		})
 		.catch((error) => {
-			console.log(error)
+			console.log(error);
 		})
-}
-// If choose a breed form exist, goes to result page and execute wikipedia search
-if (document.getElementById('wikiDogBtn')) {
-	document.getElementById('wikiDogBtn').addEventListener('click', function () {
-		console.log('wiki dog button pressed')
-		console.log(document.getElementById('breedInput').value)
-		//if else check for breed name
-		var text = document.getElementById('breedInput').value
-	
-		if (dogBreeds.includes(text)) {
-			console.log('NAISUU')
-			//go get to the result page
-			localStorage.setItem('breed',text)
-			wikiSearchBreed(text)
-		} else {
-			console.log('idiot')
-			const para = document.createElement('p')
-			para.innerHTML = 'NOT IN ARRAY'
-			document.getElementById('wikiDogBtn').appendChild(para)
-		}
-	})
 }
 
 
 //functions for dog name generation
 function capFirst(string) {
-	return string.charAt(0).toUpperCase() + string.slice(1)
+	return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
 function getRandomInt(min, max) {
-	return Math.floor(Math.random() * (max - min)) + min
+	return Math.floor(Math.random() * (max - min)) + min;
 }
 
 function generateDogName() { 
-	var dogName = [ 'Abby', 'Ace', 'Addie', 'Adele', 'Annie', 'Apollo', 'Aspen', 'Bailey', 'Beamer', 'Bear', 'Belle', 'Bella', 'Birdie', 'Bling', 'Blue', 'Bogey', 'Body', 'Boomer', 'Bowen', 'Breeze', 'Brie', 'Brody', 'Buzz', 'Callaway', 'Casey', 'Cash', 'Catcher', 'Chaos', 'Chase', 'Chili', 'CiCi', 'Cody', 'Cole', 'Comet', 'Cooper', 'Cruise', 'Crush', 'Daisy', 'Dare', 'Dash', 'Dawson', 'Dazzle', 'Demi', 'Denali', 'Diva', 'Dixie', 'Echo', 'Eli', 'Ellie', 'Emmy', 'Evie', 'Finn', 'Flash', 'Frankie', 'Frisco', 'Gator', 'Georgia', 'Ginger', 'Grace', 'Haley', 'Happy', 'Harley', 'Hattie', 'Hope', 'Hunter', 'Indy', 'Jack', 'Jamie', 'Jax', 'Jazz', 'Jenna', 'Jersey', 'Jet', 'Jinx', 'JoJo', 'Josie', 'Joy', 'Juno', 'Karma', 'Kenzi', 'Kiva', 'Kona', 'Kyra', 'Lacie', 'Lark', 'Laser', 'Latte', 'Levi', 'Lilly', 'Linx', 'Logan', 'Lucy', 'Luke', 'Max', 'Mia', 'Mojo', 'Molly', 'Murphy', 'Nike', 'Nova', 'Obie', 'Ollie', 'Peach', 'Penny', 'Pepper', 'Piper', 'Prada', 'Ranger', 'Raven', 'Reggie', 'Remington', 'Riley', 'Ripley', 'Riot', 'River', 'Roxie', 'Ruby', 'Rumor', 'Salsa', 'Scarlett', 'Scout', 'Shadow', 'Shiloh', 'Skye', 'Slater', 'Sophie', 'Spark', 'Spencer', 'Spirit', 'Spring', 'Star', 'Storm', 'Strider', 'Summer', 'Tally', 'Tango', 'Tank', 'Taylor', 'Tease', 'Tessa', 'Token', 'Tori', 'Tripp', 'Trooper', 'Tucker', 'Tux', 'Whip', 'Wyatt', 'Zeke', 'Zip', ]
+	var dogName = [ 'Abby', 'Ace', 'Addie', 'Adele', 'Annie', 'Apollo', 'Aspen', 'Bailey', 'Beamer', 'Bear', 'Belle', 'Bella', 'Birdie', 'Bling', 'Blue', 'Bogey', 'Body', 'Boomer', 'Bowen', 'Breeze', 'Brie', 'Brody', 'Buzz', 'Callaway', 'Casey', 'Cash', 'Catcher', 'Chaos', 'Chase', 'Chili', 'CiCi', 'Cody', 'Cole', 'Comet', 'Cooper', 'Cruise', 'Crush', 'Daisy', 'Dare', 'Dash', 'Dawson', 'Dazzle', 'Demi', 'Denali', 'Diva', 'Dixie', 'Echo', 'Eli', 'Ellie', 'Emmy', 'Evie', 'Finn', 'Flash', 'Frankie', 'Frisco', 'Gator', 'Georgia', 'Ginger', 'Grace', 'Haley', 'Happy', 'Harley', 'Hattie', 'Hope', 'Hunter', 'Indy', 'Jack', 'Jamie', 'Jax', 'Jazz', 'Jenna', 'Jersey', 'Jet', 'Jinx', 'JoJo', 'Josie', 'Joy', 'Juno', 'Karma', 'Kenzi', 'Kiva', 'Kona', 'Kyra', 'Lacie', 'Lark', 'Laser', 'Latte', 'Levi', 'Lilly', 'Linx', 'Logan', 'Lucy', 'Luke', 'Max', 'Mia', 'Mojo', 'Molly', 'Murphy', 'Nike', 'Nova', 'Obie', 'Ollie', 'Peach', 'Penny', 'Pepper', 'Piper', 'Prada', 'Ranger', 'Raven', 'Reggie', 'Remington', 'Riley', 'Ripley', 'Riot', 'River', 'Roxie', 'Ruby', 'Rumor', 'Salsa', 'Scarvart', 'Scout', 'Shadow', 'Shiloh', 'Skye', 'Slater', 'Sophie', 'Spark', 'Spencer', 'Spirit', 'Spring', 'Star', 'Storm', 'Strider', 'Summer', 'Tally', 'Tango', 'Tank', 'Taylor', 'Tease', 'Tessa', 'Token', 'Tori', 'Tripp', 'Trooper', 'Tucker', 'Tux', 'Whip', 'Wyatt', 'Zeke', 'Zip', ]
 
-	var genName = capFirst(dogName[getRandomInt(0, dogName.length + 1)]) + ' '
-	document.getElementById('random_name').innerHTML = genName
+	var genName = capFirst(dogName[getRandomInt(0, dogName.length + 1)]) + ' ';
+	document.getElementById('random_name').innerHTML = genName;
+
 }
 //end functions for dog name generation
 
