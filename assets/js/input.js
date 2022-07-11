@@ -62,7 +62,7 @@ function getApi() {
             var chosenBreed = localStorage.getItem('breed_value')
             console.log(cleanedData);
             // var filtered = cleanedData.filter(breed => breed.breed_group.toLowerCase().includes(chosenBreed) && parseInt(breed.life_span) > 7)
-            var filtered = cleanedData.filter(breed => breed.breed_group.toLowerCase().includes(chosenBreed) && parseInt(breed.weight.imperial) > 84 && parseInt(breed.life_span) > 8)
+            var filtered = cleanedData.filter(breed => breed.breed_group.toLowerCase().includes(chosenBreed) /*&& parseInt(breed.weight.imperial) > 84 && parseInt(breed.life_span) > 8*/)
             console.log(cleanedData.filter(breed => breed.breed_group))
             console.log(chosenBreed);
             console.log(filtered);
@@ -74,7 +74,7 @@ function getApi() {
             const resultFromStorage = JSON.parse(localStorage.getItem("searchResult"));
 
             //TODO: switch over to new page.
-            // window.location.href = "confirmation.html"
+            window.location.href = "confirmation.html"
             //Loop over the data to generate a table, each table row will have a link to the repo url
             for (var i = 0; i < filtered.length; i++) {
                 // Creating elements, tablerow, tabledata, and anchor

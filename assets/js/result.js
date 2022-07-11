@@ -3,6 +3,7 @@ loadChooseABreed()
 function loadChooseABreed() {
     var breedName = localStorage.getItem('breed');
     var title = localStorage.getItem("title");
+    console.log(breedName)
     // https://dog.ceo/api/breed/hound/images/random
     var imgBreed = `https://dog.ceo/api/breed/${breedName}/images/random`;
     fetch(imgBreed)
