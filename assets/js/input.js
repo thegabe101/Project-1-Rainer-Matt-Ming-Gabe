@@ -1,16 +1,9 @@
 var tableBody = document.getElementById('repo-table');
 var fetchButton = document.getElementById('fetch-button');
-
-<<<<<<< HEAD
 var small = 22
 var medium = 50
 var large = 100
 var dogSizeValueInteger = 0
-=======
-
-
-
->>>>>>> dev
 
 function getApi() {
 
@@ -23,11 +16,7 @@ function getApi() {
             return response.json();
         })
         .then(function (data) {
-<<<<<<< HEAD
             // console.log(data)
-=======
-            console.log(data.temperament)
->>>>>>> dev
             //TODO: if statement
             // TODO: Remember to have .includes(contain user input variable.)
 
@@ -45,15 +34,6 @@ function getApi() {
             }
 
             findRadioBreedValue();
-
-            function findDogTemperament() {
-                var temperamentChoiceEl = document.getElementById('temperamentInput').value;
-                var temperamentValue = temperamentChoiceEl;
-                console.log("You would like your dog to be " + temperamentValue + ".");
-                localStorage.setItem('dog temperament', temperamentValue);
-            }
-            
-            findDogTemperament();
 
             function findDogSizeValue() {
                 var dogSize = document.getElementById('doggoSize');
@@ -77,7 +57,7 @@ function getApi() {
 
             //FUNCTION Added 10:03 Am 7/10/2022 will test. -MH
             function findDogLifeSpan() {
-                var dogLifeSpanEl = document.getElementById('dogLifeSpanSlider'); // added ID to HTML SLIDER -MH 7/10/2022
+                var dogLifeSpanEl = document.getElementById('dogLifeSpanSlider');
                 var dogLifeSpanValue = dogLifeSpanEl.value
                 // console.log("Your dog will live at least " + dogLifeSpanValue + " years")
                 localStorage.setItem('breed_life_span', dogLifeSpanValue)
@@ -124,26 +104,6 @@ function getApi() {
 
             window.location.href = "confirmation.html"
 
-            //     for (var i = 0; i < includedBreeds.length; i++) {
-            //         // Creating elements, tablerow, tabledata, and anchor
-            //         var createTableRow = document.createElement('tr');
-            //         var tableData = document.createElement('td');
-            //         var img = document.createElement('img')
-            //         var h2 = document.createElement("h2")
-            //         var link = document.createElement('a');
-
-            //     // Setting the text of link and the href of the link
-            //     link.textContent = includedBreeds[i].breed_group
-            //     // when Links get clicked on you go to results and the dog name = breedInput
-            //     //TODO: 
-            //     link.href = "https://en.wikipedia.org/wiki/" + includedBreeds[i].name;
-
-            //     // Appending the link to the tabledata and then appending the tabledata to the tablerow
-            //     // The tablerow then gets appended to the tablebody
-            //     tableData.appendChild(link);
-            //     createTableRow.appendChild(tableData);
-            //     tableBody.appendChild(createTableRow);
-            // }
         });
 }
 
