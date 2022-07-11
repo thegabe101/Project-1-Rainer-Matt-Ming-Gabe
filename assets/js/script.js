@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', function (e) {
 
 })
 
-function autocompvare(inp, arr) {
+function autocomplete(inp, arr) {
 	var currentFocus;
 	inp.addEventListener('input', function (e) {
 		console.log('in input');
@@ -36,8 +36,8 @@ function autocompvare(inp, arr) {
 		}
 		currentFocus = -1;
 		a = document.createElement('div');
-		a.setAttribute('id', this.id + 'autocompvare-list');
-		a.setAttribute('class', 'autocompvare-items');
+		a.setAttribute('id', this.id + 'autocomplete-list');
+		a.setAttribute('class', 'autocomplete-items');
 		this.parentNode.appendChild(a);
 		for (i = 0; i < arr.length; i++) {
 			if (arr[i].substr(0, val.length).toUpperCase() == val.toUpperCase()) {
@@ -56,7 +56,7 @@ function autocompvare(inp, arr) {
 	})
 	inp.addEventListener('keydown', function (e) {
 		console.log('in keydown');
-		var x = document.getElementById(this.id + 'autocompvare-list')
+		var x = document.getElementById(this.id + 'autocomplete-list')
 		if (x) x = x.getElementsByTagName('div');
 		if (e.keyCode == 40) {
 			currentFocus++;
@@ -76,16 +76,16 @@ function autocompvare(inp, arr) {
 		removeActive(x)
 		if (currentFocus >= x.length) currentFocus = 0;
 		if (currentFocus < 0) currentFocus = x.length - 1;
-		x[currentFocus].classList.add('autocompvare-active');
+		x[currentFocus].classList.add('autocomplete-active');
 
 	}
 	function removeActive(x) {
 		for (var i = 0; i < x.length; i++) {
-			x[i].classList.remove('autocompvare-active');
+			x[i].classList.remove('autocomplete-active');
 		}
 	}
 	function closeAllLists(elmnt) {
-		var x = document.getElementsByClassName('autocompvare-items');
+		var x = document.getElementsByClassName('autocomplete-items');
 		for (var i = 0; i < x.length; i++) {
 			if (elmnt != x[i] && elmnt != inp) {
 				x[i].parentNode.removeChild(x[i]);
@@ -96,10 +96,10 @@ function autocompvare(inp, arr) {
 		closeAllLists(e.target);
 	})
 } 
-// This Checks if ID breedInput is available then do the autocompvare
+// This Checks if ID breedInput is available then do the autocomplete
 // Autocompvare function will only run in inputs.html
 if (document.getElementById('breedInput')) {
-	autocompvare(document.getElementById('breedInput'), dogBreeds);
+	autocomplete(document.getElementById('breedInput'), dogBreeds);
 }
 
 
