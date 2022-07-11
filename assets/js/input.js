@@ -1,9 +1,9 @@
 var tableBody = document.getElementById('repo-table');
 var fetchButton = document.getElementById('fetch-button');
-
-
-
-
+var small = 22
+var medium = 50
+var large = 100
+var dogSizeValueInteger = 0
 
 function getApi() {
 
@@ -16,7 +16,7 @@ function getApi() {
             return response.json();
         })
         .then(function (data) {
-            console.log(data.temperament)
+            // console.log(data)
             //TODO: if statement
             // TODO: Remember to have .includes(contain user input variable.)
 
@@ -25,9 +25,9 @@ function getApi() {
                 var breed_value;
                 for (i = 0; i < breeds.length; i++) {
                     if (breeds[i].checked) {
-                        console.log("breeds[i]: " + breeds[i])
+                        // console.log("breeds[i]: " + breeds[i])
                         breed_value = breeds[i].value
-                        console.log("CHOSEN ONE: " + breed_value);
+                        // console.log("CHOSEN ONE: " + breed_value);
                         localStorage.setItem('breed_value', breed_value.toLowerCase())
                     }
                 }
@@ -35,80 +35,75 @@ function getApi() {
 
             findRadioBreedValue();
 
-            function findDogTemperament() {
-                var temperamentChoiceEl = document.getElementById('temperamentInput').value;
-                var temperamentValue = temperamentChoiceEl;
-                console.log("You would like your dog to be " + temperamentValue + ".");
-                localStorage.setItem('dog temperament', temperamentValue);
-            }
-            
-            findDogTemperament();
-
             function findDogSizeValue() {
                 var dogSize = document.getElementById('doggoSize');
                 // change dogSizeValue to dogSizeValueCategory ex. small med large -MHH 7/10/2022
                 var dogSizeValueCategory = dogSize.options[dogSize.selectedIndex].value;
-                console.log(dogSizeValueCategory)
-                // added variable dogSizeValueInteger to hold number value -MHH 10:23 c
-                var dogSizeValueInteger
-                if (dogSizeValueCategory == "Small") {
-                    dogSizeValueInteger = 15;
-                    console.log(dogSizeValueInteger)
+                // console.log(dogSizeValueCategory)
+                if (dogSizeValueCategory == "Medium") {
+                    dogSizeValueInteger = medium
+                    // console.log(dogSizeValueInteger)
+                } else if (dogSizeValueCategory === "Small") {
+                    dogSizeValueInteger = small
+                    // console.log(dogSizeValueInteger)
+                } else {
+                    dogSizeValueInteger = large
+                    // console.log(dogSizeValueInteger)
                 }
+
 
             }
             findDogSizeValue();
 
             //FUNCTION Added 10:03 Am 7/10/2022 will test. -MH
             function findDogLifeSpan() {
-                var dogLifeSpanEl = document.getElementById('dogLifeSpanSlider'); // added ID to HTML SLIDER -MH 7/10/2022
+                var dogLifeSpanEl = document.getElementById('dogLifeSpanSlider');
                 var dogLifeSpanValue = dogLifeSpanEl.value
-                console.log("Your dog will live at least " + dogLifeSpanValue + " years")
+                // console.log("Your dog will live at least " + dogLifeSpanValue + " years")
                 localStorage.setItem('breed_life_span', dogLifeSpanValue)
             }
             findDogLifeSpan()
 
-            var cleanedData = data.filter(group => group.breed_group)
+            var cleanedData = data.filter(breed => breed.breed_group)
+            // Change breed.weight to Simple Integers
             for (let i = 0; i < cleanedData.length; i++) {
-                console.log(cleanedData[i].breed_group)
+                var breed = cleanedData[i]
+                var stringWeightData = cleanedData[i].weight.imperial
+                var arrayWeightData = stringWeightData.split(" ", 5)
+                // console.log(arrayWeightData)
+                if (arrayWeightData.length < 2) {
+                    var weightValue = arrayWeightData[0]
+                    breed.weight = parseInt(weightValue)
+                } else {
+                    var weightValue = arrayWeightData[2]
+                    breed.weight = parseInt(weightValue)
+                }
+
             }
             var chosenBreed = localStorage.getItem('breed_value')
-            console.log(cleanedData);
-            // var filtered = cleanedData.filter(breed => breed.breed_group.toLowerCase().includes(chosenBreed) && parseInt(breed.life_span) > 7)
-            var filtered = cleanedData.filter(breed => breed.breed_group.toLowerCase().includes(chosenBreed) /*&& parseInt(breed.weight.imperial) > 84 && parseInt(breed.life_span) > 8*/)
-            console.log(cleanedData.filter(breed => breed.breed_group))
-            console.log(chosenBreed);
-            console.log(filtered);
+            // creates a new array with the matching indexes
+            var includedBreeds = cleanedData.filter((breed) => {
+                return breed.breed_group.toLowerCase().includes(chosenBreed)
+            })
 
-            // TODO: Save information for next page to see.
-            localStorage.setItem("searchResult", JSON.stringify(filtered))
+            // revises the array with additional filtering criteria
+            includedBreeds = includedBreeds.filter((breed) => {
+
+                return breed.weight < dogSizeValueInteger
+            })
+            console.log(includedBreeds)
+
+
+
+            localStorage.setItem("searchResult", JSON.stringify(includedBreeds))
 
             //in other script for the new page:
             const resultFromStorage = JSON.parse(localStorage.getItem("searchResult"));
+            console.log(resultFromStorage)
 
-            //TODO: switch over to new page.
+
             window.location.href = "confirmation.html"
-            //Loop over the data to generate a table, each table row will have a link to the repo url
-            for (var i = 0; i < filtered.length; i++) {
-                // Creating elements, tablerow, tabledata, and anchor
-                var createTableRow = document.createElement('tr');
-                var tableData = document.createElement('td');
-                var img = document.createElement('img')
-                var h2 = document.createElement("h2")
-                var link = document.createElement('a');
 
-                // Setting the text of link and the href of the link
-                link.textContent = filtered[i].breed_group
-                // when Links get clicked on you go to results and the dog name = breedInput
-                //TODO: 
-                link.href = "https://en.wikipedia.org/wiki/" + filtered[i].name;
-
-                // Appending the link to the tabledata and then appending the tabledata to the tablerow
-                // The tablerow then gets appended to the tablebody
-                tableData.appendChild(link);
-                createTableRow.appendChild(tableData);
-                tableBody.appendChild(createTableRow);
-            }
         });
 }
 
