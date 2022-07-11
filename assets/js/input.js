@@ -59,6 +59,33 @@ function getApi() {
             for (let i = 0; i < cleanedData.length; i++) {
                 console.log(cleanedData[i].breed_group)
             }
+            // TODO: Test variable against variable for size value.
+            var cleanedWeighData = data.filter(group => group.weight)
+            for (let i = 0; i < cleanedData.length; i++) {
+                // console.log(cleanedWeighData[i].weight.imperial)
+                //comes baack as # -#
+                var stringWeightData = cleanedWeighData[i].weight.imperial
+                var arrayWeightData = stringWeightData.split(" ", 5)
+                console.log(arrayWeightData)
+                if (arrayWeightData.length < 2) {
+                    var weightValue = arrayWeightData[0]
+                } else {
+                    var weightValue = arrayWeightData[2]
+                }
+                console.log(weightValue)
+                //TODO: I want to take last value from array
+                // if item index == array.length - 1 then ok
+                // else return error.
+            }
+
+            var chosenBreed = localStorage.getItem('breed_value')
+            console.log(cleanedData);
+            // var filtered = cleanedData.filter(breed => breed.breed_group.toLowerCase().includes(chosenBreed) && parseInt(breed.life_span) > 7)
+            var filtered = cleanedData.filter(breed => breed.breed_group.toLowerCase().includes(chosenBreed) && weightValue < 50)
+            console.log(cleanedData.filter(breed => breed.breed_group))
+            console.log(chosenBreed);
+            console.log(filtered);
+
             var chosenBreed = localStorage.getItem('breed_value')
             console.log(cleanedData);
             // var filtered = cleanedData.filter(breed => breed.breed_group.toLowerCase().includes(chosenBreed) && parseInt(breed.life_span) > 7)
@@ -73,8 +100,8 @@ function getApi() {
             //in other script for the new page:
             const resultFromStorage = JSON.parse(localStorage.getItem("searchResult"));
 
-            //TODO: switch over to new page.
-            window.location.href = "confirmation.html"
+            // //TODO: switch over to new page.
+            // window.location.href = "confirmation.html"
             //Loop over the data to generate a table, each table row will have a link to the repo url
             for (var i = 0; i < filtered.length; i++) {
                 // Creating elements, tablerow, tabledata, and anchor
