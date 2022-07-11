@@ -3,6 +3,7 @@
 ## Table of Contents
 
 - [Description](#description)
+- [UserStory](#UserStory)
 - [Installation](#installation)
 - [APIs](#APIs)
 - [Usage](#usage)
@@ -18,6 +19,22 @@ This project was a collaborative effort between four students from the Universit
 - The developers of this project built it with a dual-minded intent: first, to provide a useful website to those who may be searching for or simply love reading about and looking at dogs and, second, to improve their web development skills and learn from their mistakes or challenges they encountered while building the code.
 - This is a useful webpage in that it provides front-end users with the ability to discover and track real-world information regarding dog breeds. A user may engage with the website in order to learn more about specific breeds of dogs, discover breeds they know little to nothing about prior to use, or simply to browse various photos and information of dog breeds in an encyclopedic fashion.
 - The developers of this project learned an immense amount from the creation of this project. Challenges abounded at every corner, from choosing proper (and technically suitable) APIs to matching JavaScript functionality to a fast-evolving client-presenting page. Furthermore, this was the developers' first time working on a complex, fullstack (front and backend) website with multiple-developer collaboration happening through live hosting on Github. Learning to use tools like Excalidraw, Kanban boards, and multiple branches via terminals was as much an aspect of the challenge as was the coding itself.
+
+## UserStory
+
+GIVEN I am a looking for a dog
+WHEN I visit the homepage
+THEN I am greeted with a website that can help me choose a breed
+WHEN I click "Let's Get Started"
+THEN I am presented with a user input page with numerous parameters
+WHEN I choose a breed type on the input page
+THEN I am taken to a results page with a photo and Wiki of my chosen breed
+WHEN I choose the right side of the page (Build your dog) and select several parameters
+THEN I am taken to a confirmation page with numerous results of dogs that match my preferences
+WHEN I reach the confirmation page
+THEN I can choose from "dog cards" with photos and names that match my preferences
+WHEN I click "Choose me!" on one of the cards
+THEN I am taken to the results page with a photo of that breed type and a Wiki about it
 
 ## Installation
 
@@ -39,7 +56,7 @@ This project was a collaborative effort between four students from the Universit
 
 ## Screenshots
 
-- ![Alt= Screenshot showing The Dog API landing page](/screenshot-1.jpg)
+- ![Alt= Screenshot showing The Dog API landing page]
 
 ## Credits
 

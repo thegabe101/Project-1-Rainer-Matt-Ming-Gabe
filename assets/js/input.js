@@ -1,10 +1,16 @@
 var tableBody = document.getElementById('repo-table');
 var fetchButton = document.getElementById('fetch-button');
 
+<<<<<<< HEAD
 var small = 22
 var medium = 50
 var large = 100
 var dogSizeValueInteger = 0
+=======
+
+
+
+>>>>>>> dev
 
 function getApi() {
 
@@ -17,7 +23,11 @@ function getApi() {
             return response.json();
         })
         .then(function (data) {
+<<<<<<< HEAD
             // console.log(data)
+=======
+            console.log(data.temperament)
+>>>>>>> dev
             //TODO: if statement
             // TODO: Remember to have .includes(contain user input variable.)
 
@@ -35,6 +45,15 @@ function getApi() {
             }
 
             findRadioBreedValue();
+
+            function findDogTemperament() {
+                var temperamentChoiceEl = document.getElementById('temperamentInput').value;
+                var temperamentValue = temperamentChoiceEl;
+                console.log("You would like your dog to be " + temperamentValue + ".");
+                localStorage.setItem('dog temperament', temperamentValue);
+            }
+            
+            findDogTemperament();
 
             function findDogSizeValue() {
                 var dogSize = document.getElementById('doggoSize');
