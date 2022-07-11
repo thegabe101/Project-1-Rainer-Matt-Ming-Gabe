@@ -1,13 +1,7 @@
 //in other script for the new page:
 
-    const resultFromStorage = JSON.parse(localStorage.getItem("searchResult"));
-    console.log(resultFromStorage.length)
-    console.log(resultFromStorage[1].name)
-    console.log(resultFromStorage)
-    console.log(resultFromStorage[1])
-    console.log(resultFromStorage[1].image.url)
-
-
+const resultFromStorage = JSON.parse(localStorage.getItem("searchResult"));
+console.log(resultFromStorage)
 function appendDogInfo () {
     for (var i = 0; i < resultFromStorage.length; i++) {
             // var image = document.createElement("img");
