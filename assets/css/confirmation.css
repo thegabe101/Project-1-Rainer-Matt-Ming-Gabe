@@ -1,0 +1,43 @@
+* {
+    margin: 0;
+    padding: 0
+}
+
+.title {
+    text-align: center;
+    color: darkgoldenrod;
+    background: url(https://media.istockphoto.com/photos/large-happy-dogs-white-web-banner-picture-id1066732182?k=20&m=1066732182&s=170667a&w=0&h=OcScNIY9PMIsfDW0O583vgd6FeUt-TUYE4qfBSuMAzw=);
+    height: 25vh;
+    margin-top: 5px;
+    border-bottom: 10px solid darkolivegreen;
+    border-radius: 20%;
+    margin-right: 18px;
+    margin-left: 18px;
+    padding-bottom: 20px;
+}
+
+body {
+    background: url(https://wallpaperaccess.com/full/1826326.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    background-color: white;
+ }
+  
+.matchCard {
+    flex: 0 1 calc(25% - 1em);
+    border: solid 2px black;
+}
+
+.matchImg {
+    
+}
+
+.matchContent {
+
+}
