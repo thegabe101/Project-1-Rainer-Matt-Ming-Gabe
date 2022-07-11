@@ -26,25 +26,23 @@ function appendDogInfo () {
             `)
             $('#dog-card').append(doggyCard)
         }
-        call()
+        call();
     }
-    
 
-appendDogInfo()
+appendDogInfo();
 
 function call() {
     var button = document.getElementsByClassName('btn');
     for (let i = 0; i < button.length; i++) {
         button[i].addEventListener('click', function() {
             console.log('clicked card button '+ i);
-            var breedName = document.getElementById('pId'+i).innerHTML
-            console.log(breedName.toLowerCase())
-            localStorage.setItem('breed', breedName.toLowerCase())  
+            var breedName = document.getElementById('pId'+i).innerHTML;
+            console.log(breedName.toLowerCase());
+            localStorage.setItem('breed', breedName.toLowerCase());
 
-setTimeout(function() {
-  window.location.href = "results.html"
-}, 1000);
-            
+            setTimeout(function() {
+                window.location.href = "results.html"
+            }, 1000);  
         }) 
     }
 }
@@ -52,7 +50,7 @@ setTimeout(function() {
 
 document.getElementById("fetch-button0").addEventListener("click", function() {
     console.log('clicked first card button');
-    var breedName = document.getElementById('')
+    var breedName = document.getElementById('');
 });
 
 

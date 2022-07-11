@@ -1,116 +1,115 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>BuildYourDog</title>
-  <!-- Compiled and minified CSS -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" />
-  <link rel="stylesheet" href="./assets/css/inputs.css" />
-</head>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BuildYourDog</title>
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" />
+    <link rel="stylesheet" href="./assets/css/inputs.css" />
+  </head>
 
-<body>
-  <div class="container">
-    <div class="nameGen title" id="nameGenerator">Choose a Breed & Generate Name!</div>
-    <input id="nameGenBtn" type="button" value="Names for your doggo!" onclick="generateDogName();" />
-    <h3 id="random_name"></h3>
-    <div>
-      <h3>Choose a breed</h3>
-      <form autocomplete="off" action="/action_page.php">
-        <div class="autocomplete" style="width: 300px">
-          <input id="breedInput" type="text" name="breed" placeholder="Enter a breed here" />
-        </div>
-        <div class="button" id="wikiDogBtn">
-          <input type="button" value="Submit" />
-        </div>
+  <body>
+    <div class="container">
+      <div class="nameGen title" id="nameGenerator">Choose a Breed & Generate Name!</div>
+      <input id="nameGenBtn" type="button" value="Names for your doggo!" onclick="generateDogName();" />
+      <h3 id="random_name"></h3>
+      <div>
+        <h3>Choose a breed</h3>
+        <form autocomplete="off" action="/action_page.php">
+          <div class="autocomplete" style="width: 300px">
+            <input id="breedInput" type="text" name="breed" placeholder="Enter a breed here" />
+          </div>
+          <div class="button" id="wikiDogBtn">
+            <input type="button" value="Submit" />
+          </div>
+        </form>
+      </div>
+    </div>
+    <h1 id="or">OR</h1>
+    <div class="container">
+      <div class="title">Build Your Dog</div>
+      <form action="/confirmation.html" method="POST">
+        <div class="dog-details">
+          <div>
+            <div class="input-field col s12">
+              <h3>Dog Size</h3>
+              <select id="doggoSize">
+                <option value="" disabled selected>Choose your option</option>
+                <option value="Small">Small</option>
+                <option value="Medium">Medium</option>
+                <option value="Large">Large</option>
+              </select>
+              <label></label>
+            </div>
+            <div class="slider">
+              <p>Minimum Lifespan Expectancy</p>
+              <!--Added id to input 7/10/2022 10:04 am - MHH -->
+              <input id="dogLifeSpanSlider" type="range" name="rangeslide" id="lifespan" min="7" max="20" value="10"
+                class="slider">
+            </div>
+            <div class="input-box">
+              <span class="details">Breed Group</span>
+              <form action="./confirmation.html" method="POST">
+                <p>
+                  <label>
+                    <input value="Hound" name="group1" type="radio" checked />
+                    <span>Hound</span>
+                  </label>
+                </p>
+                <p>
+                  <label>
+                    <input value="Herding" name="group1" type="radio" />
+                    <span>Herding</span>
+                  </label>
+                </p>
+                <p>
+                  <label>
+                    <input value="Working" name="group1" type="radio" />
+                    <span>Working</span>
+                  </label>
+                </p>
+                <p>
+                  <label>
+                    <input value="Terrier" name="group1" type="radio" />
+                    <span>Terrier</span>
+                  </label>
+                </p>
+                <p>
+                  <label>
+                    <input value="Sporting" name="group1" type="radio" />
+                    <span>Sporting</span>
+                  </label>
+                </p>
+                <p>
+                  <label>
+                    <input value="Non-Sporting" name="group1" type="radio" />
+                    <span>Non-Sporting</span>
+                  </label>
+                </p>
+                <p>
+                  <label>
+                    <input value="Toy" name="group1" type="radio" />
+                    <span>Toy</span>
+                  </label>
+                </p>
+                <div id="result"></div>
+              </form>
+            </div>
+          </div>
+          <div class="button">
+            <input type="button" value="Submit" id="fetch-button" />
+          </div>
       </form>
     </div>
-  </div>
-  <h1 id="or">OR</h1>
-  <div class="container">
-    <div class="title">Build Your Dog</div>
-    <form action="/confirmation.html" method="POST">
-      <div class="dog-details">
-        <div>
-          <div class="input-field col s12">
-            <h3>Dog Size</h3>
-            <select id="doggoSize">
-              <option value="" disabled selected>Choose your option</option>
-              <option value="Small">Small</option>
-              <option value="Medium">Medium</option>
-              <option value="Large">Large</option>
-            </select>
-            <label></label>
-          </div>
-          <div class="slider">
-            <p>Minimum Lifespan Expectancy</p>
-            <!--Added id to input 7/10/2022 10:04 am - MHH -->
-            <input id="dogLifeSpanSlider" type="range" name="rangeslide" id="lifespan" min="7" max="20" value="10"
-              class="slider">
-          </div>
-          <div class="input-box">
-            <span class="details">Breed Group</span>
-            <form action="./confirmation.html" method="POST">
-              <p>
-                <label>
-                  <input value="Hound" name="group1" type="radio" checked />
-                  <span>Hound</span>
-                </label>
-              </p>
-              <p>
-                <label>
-                  <input value="Herding" name="group1" type="radio" />
-                  <span>Herding</span>
-                </label>
-              </p>
-              <p>
-                <label>
-                  <input value="Working" name="group1" type="radio" />
-                  <span>Working</span>
-                </label>
-              </p>
-              <p>
-                <label>
-                  <input value="Terrier" name="group1" type="radio" />
-                  <span>Terrier</span>
-                </label>
-              </p>
-              <p>
-                <label>
-                  <input value="Sporting" name="group1" type="radio" />
-                  <span>Sporting</span>
-                </label>
-              </p>
-              <p>
-                <label>
-                  <input value="Non-Sporting" name="group1" type="radio" />
-                  <span>Non-Sporting</span>
-                </label>
-              </p>
-              <p>
-                <label>
-                  <input value="Toy" name="group1" type="radio" />
-                  <span>Toy</span>
-                </label>
-              </p>
-              <div id="result"></div>
-            </form>
-          </div>
-        </div>
-        <div class="button">
-          <input type="button" value="Submit" id="fetch-button" />
-        </div>
-    </form>
-  </div>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
-    integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
-    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-  <script src="./assets/js/input.js"></script>
-  <script src="./assets/js/script.js"></script>
-  <!-- Compiled and minified JavaScript -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-</body>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+      integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+      crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="./assets/js/input.js"></script>
+    <script src="./assets/js/script.js"></script>
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  </body>
 </html>
