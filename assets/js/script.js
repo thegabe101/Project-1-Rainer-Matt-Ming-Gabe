@@ -4,7 +4,7 @@ var dogBreed = 'https://dog.ceo/api/breeds/list/all'
 var imgBreed = 'https://dog.ceo/api/breed/hound/images'
 var postmanAPIURL = 'https://api.thedogapi.com/v1/breeds?limit=172&page=0'
 var dogBreeds = [ 'affenpinscher', 'african', 'airendale', 'akita', 'appenzeller', 'australian', 'basenji', 'beagle', 'bluetick', 'borzoi', 'bouvier', 'boxer', 'brabancon', 'briard', 'buhund', 'bulldog', 'bullterrier', 'cattledog', 'chihuahua', 'chow', 'clumber', 'cockapoo', 'collie', 'coonhound', 'corgi', 'cotondetulear', 'dachshund', 'dalmatian', 'dane', 'deerhound', 'dhole', 'dingo', 'doberman', 'elkhound', 'entlebucher', 'eskimo', 'finnish', 'frise', 'germanshepherd', 'greyhound', 'groenendael', 'havanese', 'hound', 'husky', 'keeshond', 'kelpie', 'komondor', 'kuvasz', 'labradoodle', 'labrador', 'leonberg', 'lhasa', 'malamute', 'malinois', 'maltese', 'mastiff', 'mexicanhairless', 'mix', 'mountain', 'newfoundland', 'otterhound', 'ovcharka', 'papillon', 'pekinese', 'pembroke', 'pinscher', 'pitbull', 'pointer', 'pomeranian', 'poodle', 'pug', 'puggle', 'pyrenees', 'redbone', 'retriever', 'ridgeback', 'rottweiler', 'saluki', 'samoyed', 'schipperke', 'schnauzer', 'setter', 'sharpei', 'sheepdog', 'shiba', 'shihtzu', 'spaniel', 'springer', 'stbernard', 'terrier', 'tervuren', 'vizsla', 'waterdog', 'weimaraner', 'whippet', 'wolfhound', ]
-
+var dogTemperamentsArray = ['active', 'adaptable', 'affectionate', 'aggressive', 'agile', 'alert', 'assertive', 'athletic', 'attentive', 'bold', 'bossy', 'brave', 'bright', 'bubbly', 'calm', 'cat-like', 'cautious', 'charming', 'cheerful', 'clever', 'clownish', 'companionable', 'confident', 'courageous', 'devoted', 'dignified', 'docile', 'dominant', 'eager', 'easy-going', 'energetic', 'even tempered', 'extroverted', 'faithful', 'familial', 'fearless', 'friendly', 'fun-loving', 'gentle', 'good-natured', 'happy', 'hard-working', 'hardy', 'independent', 'inquisitive', 'intelligent', 'joyful', 'keen', 'kind', 'lively', 'loving', 'loyal', 'mischievous', 'obedient', 'opinionated', 'outgoing', 'patient', 'playful', 'protective', 'proud', 'quick', 'quiet', 'rational', 'receptive', 'reserved', 'responsive', 'self-assured', 'self-confidence', 'sociable', 'spirited', 'spunky', 'stable', 'steady', 'strong', 'strong-willed', 'stubborn', 'suspicious', 'sweet-tempered', 'tenacious', 'territorial', 'tolerant', 'trainable', 'vocal', 'watchful']
 
 // fetch(postmanAPIURL)
 // 	.then((res) => res.json())
@@ -102,6 +102,7 @@ if (document.getElementById('breedInput')) {
 	autocompvare(document.getElementById('breedInput'), dogBreeds);
 }
 
+
 // If choose a breed form exist, goes to result page and execute wikipedia search
 if (document.getElementById('wikiDogBtn')) {
 	// Choose a breed form function
@@ -122,6 +123,12 @@ if (document.getElementById('wikiDogBtn')) {
 }
 
 // search the dog breed group's name in wikipedia search list, and stores in breed group's name for random image in result page.
+
+if (document.getElementById('temperamentInput')) {
+	autocomplete(document.getElementById('temperamentInput'), dogTemperamentsArray)
+}
+//breedgROUP = TEXT
+
 function wikiSearchBreed(breedGroup) {
 	// the dog breed group's name will have %20 between spacing (wiki requirement), and add (dog) for precision
 	breedGroup = breedGroup.split(' ').join('%20') +('(dog)');
