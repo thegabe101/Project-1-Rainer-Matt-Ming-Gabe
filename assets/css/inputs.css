@@ -10,12 +10,9 @@ body {
 	justify-content: center;
 	align-items: center;
 	padding: 10px;
-	background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
-		url(../images/Woman-and-dog-silhouette.jpg),
-		url(../images/Mans-best-friend.jpg), url(../images/esKOS1.webp),
-		url(../images/B4wkTy.jpg);
+	background-image: url(./My\ project.png);
 	background-repeat: no-repeat;
-	background-position: top left, top right, bottom left, bottom right;
+	background-size: 100% 100%;
 }
 
 .container {
