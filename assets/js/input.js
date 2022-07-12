@@ -4,6 +4,7 @@ var small = 22
 var medium = 50
 var large = 100
 var dogSizeValueInteger = 0
+var dogMinimumAgeInteger = 0
 
 function getApi() {
 
@@ -50,8 +51,6 @@ function getApi() {
                     dogSizeValueInteger = large
                     // console.log(dogSizeValueInteger)
                 }
-
-
             }
             findDogSizeValue();
 
@@ -59,8 +58,11 @@ function getApi() {
             function findDogLifeSpan() {
                 var dogLifeSpanEl = document.getElementById('dogLifeSpanSlider');
                 var dogLifeSpanValue = dogLifeSpanEl.value
-                // console.log("Your dog will live at least " + dogLifeSpanValue + " years")
-                localStorage.setItem('breed_life_span', dogLifeSpanValue)
+                //Turns a string into an integer
+                dogLifeSpanValue = parseInt(dogLifeSpanValue)
+                dogMinimumAgeInteger = dogLifeSpanValue
+
+                // localStorage.setItem('breed_life_span', dogLifeSpanValue)
             }
             findDogLifeSpan()
 
@@ -70,6 +72,8 @@ function getApi() {
                 var breed = cleanedData[i]
                 var stringWeightData = cleanedData[i].weight.imperial
                 var arrayWeightData = stringWeightData.split(" ", 5)
+                var stringLifeSpan = cleanedData[i].life_span
+                var parsedLifeSpan = parseInt(stringLifeSpan)
                 // console.log(arrayWeightData)
                 if (arrayWeightData.length < 2) {
                     var weightValue = arrayWeightData[0]
@@ -93,6 +97,12 @@ function getApi() {
             })
             console.log(includedBreeds)
 
+            includedBreeds = includedBreeds.filter((breed) => {
+
+
+                return parsedLifeSpan >= dogMinimumAgeInteger
+            })
+
 
 
             localStorage.setItem("searchResult", JSON.stringify(includedBreeds))
@@ -102,7 +112,7 @@ function getApi() {
             console.log(resultFromStorage)
 
 
-            window.location.href = "confirmation.html"
+            // window.location.href = "confirmation.html"
 
         });
 }
