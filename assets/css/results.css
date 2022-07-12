@@ -26,6 +26,7 @@ section .title {
 	margin-bottom: 60px;
 	padding-bottom: 20px;
 	font-family: 'Ubuntu', sans-serif;
+	color: white;
 }
 .about .about-content {
 	display: flex;
@@ -36,16 +37,31 @@ section .title {
 	width: 40%;
 }
 .about .about-content .right {
+	border: 3px black solid;
+	border-radius: 40%;
 	width: 40%;
+	background-image: linear-gradient(
+		rgba(0, 0, 0, 0.7),
+		rgba(0, 0, 0, 0.7)),
+	url(https://images.unsplash.com/photo-1618946019619-9d7b7d86b48f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8d2Fsa2luZyUyMGRvZ3xlbnwwfHwwfHw%3D&w=1000&q=80);
+	background-size: cover;
+	color: white;
+	filter:sepia(2px);
+	object-fit: cover;
 }
 .about .about-content .right .text {
-	font-size: 25px;
+	font-size: 30px;
 	font-weight: 900;
 	margin-bottom: 15px;
+	object-fit: cover;
 }
 .about .about-content .left img {
 	height: 500px;
 	width: 400px;
 	object-fit: cover;
 	border-radius: 20px;
+}
+
+#wikiContentP{
+	object-fit: cover;
 }
