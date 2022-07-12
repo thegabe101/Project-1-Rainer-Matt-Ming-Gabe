@@ -15,10 +15,6 @@ function getApi() {
 			return response.json()
 		})
 		.then(function (data) {
-			// console.log(data)
-			//TODO: if statement
-			// TODO: Remember to have .includes(contain user input variable.)
-
 			function findDogTemperament() {
 				var temperamentChoiceEl = document.getElementById('temperamentInput')
 				var temperamentValue = temperamentChoiceEl.value
@@ -62,6 +58,7 @@ function getApi() {
 					// console.log(dogSizeValueInteger)
 				}
 			}
+			
 			findDogSizeValue()
 
 			//FUNCTION Added 10:03 Am 7/10/2022 will test. -MH
