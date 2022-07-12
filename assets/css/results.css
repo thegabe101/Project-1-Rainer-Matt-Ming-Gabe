@@ -37,6 +37,7 @@ section .title {
 	width: 40%;
 }
 .about .about-content .right {
+	display: flex;
 	border: 3px black solid;
 	border-radius: 40%;
 	width: 40%;
@@ -50,18 +51,14 @@ section .title {
 	object-fit: cover;
 }
 .about .about-content .right .text {
+	display: inline;
 	font-size: 30px;
 	font-weight: 900;
-	margin-bottom: 15px;
 	object-fit: cover;
 }
 .about .about-content .left img {
-	height: 500px;
-	width: 400px;
+	height: 100%;
+	width: 100%;
 	object-fit: cover;
 	border-radius: 20px;
-}
-
-#wikiContentP{
-	object-fit: cover;
 }
