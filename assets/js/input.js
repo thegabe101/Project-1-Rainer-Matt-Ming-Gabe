@@ -6,6 +6,7 @@ var large = 100
 var dogSizeValueInteger = 0
 var dogMinimumAgeInteger = 0
 
+
 function getApi() {
 
 
@@ -20,6 +21,16 @@ function getApi() {
             // console.log(data)
             //TODO: if statement
             // TODO: Remember to have .includes(contain user input variable.)
+            
+            function findDogTemperament() {
+                var temperamentChoiceEl = document.getElementById('temperamentInput');
+                var temperamentValue = temperamentChoiceEl.value;
+                console.log("You would like your dog to be " + temperamentValue + ".");
+                localStorage.setItem('temperament_Value', temperamentValue.toLowerCase());
+            }
+            
+            findDogTemperament();
+
 
             function findRadioBreedValue() {
                 var breeds = document.getElementsByName('group1');
@@ -58,8 +69,10 @@ function getApi() {
             function findDogLifeSpan() {
                 var dogLifeSpanEl = document.getElementById('dogLifeSpanSlider');
                 var dogLifeSpanValue = dogLifeSpanEl.value
+                // console.log(dogLifeSpanValue);
                 //Turns a string into an integer
                 dogLifeSpanValue = parseInt(dogLifeSpanValue)
+                // console.log(dogLifeSpanValue)
                 dogMinimumAgeInteger = dogLifeSpanValue
 
                 // localStorage.setItem('breed_life_span', dogLifeSpanValue)
@@ -92,8 +105,14 @@ function getApi() {
 
             // revises the array with additional filtering criteria
             includedBreeds = includedBreeds.filter((breed) => {
-
-                return breed.weight < dogSizeValueInteger
+                console.log(breed.weight, dogSizeValueInteger)
+                if(dogSizeValueInteger === 50) {
+                    return (breed.weight > 22 && breed.weight < 50) 
+                } else if(dogSizeValueInteger === 100) {
+                    return (breed.weight > 50)
+                } else {
+                    return breed.weight < dogSizeValueInteger
+                }
             })
             console.log(includedBreeds)
 
@@ -101,6 +120,11 @@ function getApi() {
 
 
                 return parsedLifeSpan >= dogMinimumAgeInteger
+            })
+            var chosenTemperament = localStorage.getItem('temperament_Value')
+            includedBreeds = includedBreeds.filter((breed) => {
+                console.log(chosenTemperament);
+                return breed.temperament.toLowerCase().includes(chosenTemperament)
             })
 
 
@@ -112,7 +136,7 @@ function getApi() {
             console.log(resultFromStorage)
 
 
-            // window.location.href = "confirmation.html"
+            window.location.href = "confirmation.html"
 
         });
 }
