@@ -26,29 +26,29 @@ section .title {
 	margin-bottom: 60px;
 	padding-bottom: 20px;
 	font-family: 'Ubuntu', sans-serif;
-	color: white;
+	color: black;
 }
 .about .about-content {
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: space-between;
+	align-items: center;
 }
 .about .about-content .left {
-	width: 40%;
+	width: 50%;
 }
 .about .about-content .right {
 	display: flex;
 	border: 3px black solid;
-	border-radius: 40%;
+	border-radius: 10%;
 	width: 40%;
-	background-image: linear-gradient(
-		rgba(0, 0, 0, 0.7),
-		rgba(0, 0, 0, 0.7)),
-	url(https://images.unsplash.com/photo-1618946019619-9d7b7d86b48f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8d2Fsa2luZyUyMGRvZ3xlbnwwfHwwfHw%3D&w=1000&q=80);
+	background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+		url(https://images.unsplash.com/photo-1618946019619-9d7b7d86b48f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8d2Fsa2luZyUyMGRvZ3xlbnwwfHwwfHw%3D&w=1000&q=80);
 	background-size: cover;
 	color: white;
-	filter:sepia(2px);
+	filter: sepia(2px);
 	object-fit: cover;
+	justify-content: center;
 }
 .about .about-content .right .text {
 	display: inline;
@@ -57,8 +57,15 @@ section .title {
 	object-fit: cover;
 }
 .about .about-content .left img {
-	height: 100%;
 	width: 100%;
 	object-fit: cover;
 	border-radius: 20px;
+}
+.content {
+	height: 80%;
+	width: 80%;
+	top: 20px;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	bottom: 20px;
 }
