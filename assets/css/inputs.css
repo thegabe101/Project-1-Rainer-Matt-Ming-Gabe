@@ -14,7 +14,9 @@ body {
 	background-repeat: no-repeat;
 	background-size: 100% 100%;
 }
-
+#error {
+	color: red;
+}
 .container {
 	max-width: 700px;
 	width: 100%;
@@ -273,37 +275,37 @@ form .button input:hover {
 
 .slider {
 	margin-top: 40px;
-	-webkit-appearance: none; 
+	-webkit-appearance: none;
 	appearance: none;
-	width: 100%; 
-	height: 25px; 
-	outline: none; 
-	opacity: 0.7;
-	-webkit-transition: .2s; 
-	transition: opacity .2s;
-  }
-  
-  .slider:hover {
-	opacity: 1; 
-  }
-
-  .slider::-webkit-slider-thumb {
-	-webkit-appearance: none; 
-	appearance: none;
-	width: 25px; 
+	width: 100%;
 	height: 25px;
-	cursor: pointer; 
+	outline: none;
+	opacity: 0.7;
+	-webkit-transition: 0.2s;
+	transition: opacity 0.2s;
+}
+
+.slider:hover {
+	opacity: 1;
+}
+
+.slider::-webkit-slider-thumb {
+	-webkit-appearance: none;
+	appearance: none;
+	width: 25px;
+	height: 25px;
+	cursor: pointer;
 	background: url('./616554.png');
-  }
-  
-  .slider::-moz-range-thumb {
-	width: 25px; 
-	height: 25px; 
+}
+
+.slider::-moz-range-thumb {
+	width: 25px;
+	height: 25px;
 	background: url('./616554.png');
-	cursor: pointer; 
-  }
-  
-  #nameGenBtn {
+	cursor: pointer;
+}
+
+#nameGenBtn {
 	margin: 10px;
 	padding: 15px 30px;
 	text-align: center;
@@ -316,34 +318,39 @@ form .button input:hover {
 	border: 0px;
 	font-weight: 700;
 	box-shadow: 0px 0px 14px -7px #f09819;
-	background-image: linear-gradient(45deg, #FF512F 0%, #F09819  51%, #FF512F  100%);
+	background-image: linear-gradient(
+		45deg,
+		#ff512f 0%,
+		#f09819 51%,
+		#ff512f 100%
+	);
 	cursor: pointer;
 	user-select: none;
 	-webkit-user-select: none;
 	touch-action: manipulation;
-  }
-  
-  #nameGenBtn:hover {
+}
+
+#nameGenBtn:hover {
 	background-position: right center;
 	/* change the direction of the change here */
 	color: #fff;
 	text-decoration: none;
-  }
-  
-  #nameGenBtn:active {
-	transform: scale(0.95);
-  }
+}
 
-  #or {
+#nameGenBtn:active {
+	transform: scale(0.95);
+}
+
+#or {
 	color: white;
-	text-shadow: #F09819 3px;
+	text-shadow: #f09819 3px;
 	text-decoration: underline 2px;
-  }
+}
 
 @media (min-width: 768px) {
-  .button-56 {
-    padding: 0 40px;
-  }
+	.button-56 {
+		padding: 0 40px;
+	}
 }
 
 @media (max-width: 584px) {

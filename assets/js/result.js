@@ -1,36 +1,102 @@
-
-loadChooseABreed();
-
-// Result page displays a random image of the dog breed, the dog breed name, and its wikipedia content 
+loadChooseABreed()
 function loadChooseABreed() {
-    // Store localStorage values
-    var breedName = localStorage.getItem('breed');
-    var title = localStorage.getItem("title");
-    var wikiContent = localStorage.getItem('wiki');
+	var breedName = localStorage.getItem('breed')
+	var title = localStorage.getItem('title')
+	console.log(breedName)
 
-    console.log(breedName);
-    // imgBreed stores the dog images API, and display the images randomly.
-    var imgBreed = `https://dog.ceo/api/breed/${breedName}/images/random`;
-    fetch(imgBreed)
-		.then((response) => {
-			return response.json();
+	let url = 'https://en.wikipedia.org/w/api.php?'
+	var breedGroup = breedName.split(' ').join('%20')
+	const words = breedName.split(' ')
+
+	var imageName = words
+		.map((word) => {
+			return word[0].toUpperCase() + word.substring(1)
 		})
-		.then((url) => {
-            console.log(url.message);
-            // Creates an image element and append under the element ID: dogImage
-            var image = document.createElement("img");
-            // image src obtains the random image url 
-            image.src = url.message;    
-            console.log(image.src);
-            document.getElementById("dogImage").appendChild(image);
-        })
-    $('.title').text(title);
-    
-    console.log(wikiContent);
-    // The title contains the dog breed name
-    // Wikipedia content is stored in element id - wikiContentP (paragraph)
-    document.getElementById("wikiContentP").textContent = wikiContent;
-    // Reset localStorage keys and values
-    localStorage.clear();
+		.join('%20')
+
+	console.log(
+		words
+			.map((word) => {
+				return word[0].toUpperCase() + word.substring(1)
+			})
+			.join('%20')
+	)
+	const params = {
+		action: 'query',
+		format: 'json', //requests the data in JSON format
+		prop: 'images',
+		titles: breedGroup,
+		origin: '*',
+	}
+
+	Object.keys(params).forEach((key) => {
+		url += `&${key}=${params[key]}`
+	})
+	var rawUrl = `https://en.wikipedia.org/w/api.php?action=query&format=json&prop=pageimages&list=&titles=${imageName}&pithumbsize=500&origin=*`
+
+	fetch(rawUrl)
+		.then((response) => {
+			return response.json()
+		})
+		.then((data) => {
+			console.log(data)
+			let Info = Object.keys(data.query.pages).map(
+				(pageid) => data.query.pages[pageid].thumbnail.source
+			)
+			console.log(Info)
+			var image = document.createElement('img')
+			image.src = Info
+			document.getElementById('dogImage').appendChild(image)
+		})
+		.catch((error) => {
+			aaa()
+			console.log(error)
+		})
+
+	var wikiContent = localStorage.getItem('wiki')
+	console.log(wikiContent)
+	$('.title').text(title)
+	document.getElementById('wikiContentP').textContent = wikiContent
 }
 
+var image = 'https://images.dog.ceo/breeds/hound-ibizan'
+var imgBreed = 'https://dog.ceo/api/breed/affenpinscher/images/random'
+
+function aaa() {
+	breedName = localStorage.getItem('breed') + ' (dog)'
+	var breedGroup = breedName.split(' ').join('%20')
+	const words = breedName.split(' ')
+
+	var imageName = words
+		.map((word) => {
+			return word[0].toUpperCase() + word.substring(1)
+		})
+		.join('%20')
+
+	console.log(
+		'CATCH' +
+			words
+				.map((word) => {
+					return word[0].toUpperCase() + word.substring(1)
+				})
+				.join('%20')
+	)
+	var rawUrl = `https://en.wikipedia.org/w/api.php?action=query&format=json&prop=pageimages&list=&titles=${imageName}&pithumbsize=500&origin=*`
+	fetch(rawUrl)
+		.then((response) => {
+			return response.json()
+		})
+		.then((data) => {
+			console.log(data)
+			let Info = Object.keys(data.query.pages).map(
+				(pageid) => data.query.pages[pageid].thumbnail.source
+			)
+			console.log(Info)
+			var image = document.createElement('img')
+			image.src = Info
+			document.getElementById('dogImage').appendChild(image)
+		})
+		.catch((error) => {
+			console.log(error)
+		})
+}
