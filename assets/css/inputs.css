@@ -281,29 +281,29 @@ form .button input:hover {
 	opacity: 0.7;
 	-webkit-transition: .2s; 
 	transition: opacity .2s;
-  }
-  
-  .slider:hover {
-	opacity: 1; 
-  }
+}
 
-  .slider::-webkit-slider-thumb {
+.slider:hover {
+	opacity: 1; 
+}
+
+.slider::-webkit-slider-thumb {
 	-webkit-appearance: none; 
 	appearance: none;
 	width: 25px; 
 	height: 25px;
 	cursor: pointer; 
 	background: url('./616554.png');
-  }
-  
-  .slider::-moz-range-thumb {
+}
+
+.slider::-moz-range-thumb {
 	width: 25px; 
 	height: 25px; 
 	background: url('./616554.png');
 	cursor: pointer; 
-  }
-  
-  #nameGenBtn {
+}
+
+#nameGenBtn {
 	margin: 10px;
 	padding: 15px 30px;
 	text-align: center;
@@ -321,29 +321,29 @@ form .button input:hover {
 	user-select: none;
 	-webkit-user-select: none;
 	touch-action: manipulation;
-  }
-  
-  #nameGenBtn:hover {
+}
+
+#nameGenBtn:hover {
 	background-position: right center;
 	/* change the direction of the change here */
 	color: #fff;
 	text-decoration: none;
-  }
-  
-  #nameGenBtn:active {
-	transform: scale(0.95);
-  }
+}
 
-  #or {
+#nameGenBtn:active {
+	transform: scale(0.95);
+}
+
+#or {
 	color: white;
 	text-shadow: #F09819 3px;
 	text-decoration: underline 2px;
-  }
+}
 
 @media (min-width: 768px) {
-  .button-56 {
+.button-56 {
     padding: 0 40px;
-  }
+}
 }
 
 @media (max-width: 584px) {
