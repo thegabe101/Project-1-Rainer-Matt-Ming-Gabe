@@ -6,7 +6,7 @@ function appendDogInfo() {
 	for (var i = 0; i < resultFromStorage.length; i++) {
 		var doggyCard = $(`
                         <article class="matchCard" id="matchCard${i}">
-                            <img src="${resultFromStorage[i].image.url}" alt="Picture of dog" class = "matchImg">
+                            <img src="${resultFromStorage[i].image.url}" alt="Picture of dog" class = "matchImg" id = "doggyImage${i}">
                             <p class="matchContent" id = 'pId${i}'>${resultFromStorage[i].name}</p>
                             <button class="btn btn-danger" id="fetch-button${i}">Choose me!</button>
                         </article>
@@ -24,7 +24,10 @@ function call() {
 		button[i].addEventListener('click', function () {
 			console.log('clicked card button ' + i)
 			var breedName = document.getElementById('pId' + i).innerHTML
+			var imageDog = document.getElementById('doggyImage'+i).src
+			console.log(imageDog)
 			console.log(breedName.toLowerCase())
+			localStorage.setItem('coolImage', imageDog)
 			localStorage.setItem('breed', breedName.toLowerCase())
 
 			wikiSearchBreed(breedName)

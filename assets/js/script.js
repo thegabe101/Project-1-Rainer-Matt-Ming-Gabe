@@ -6,14 +6,6 @@ var postmanAPIURL = 'https://api.thedogapi.com/v1/breeds?limit=172&page=0'
 var dogBreeds = [ 'affenpinscher', 'african', 'airendale', 'akita', 'appenzeller', 'australian', 'basenji', 'beagle', 'bluetick', 'borzoi', 'bouvier', 'boxer', 'brabancon', 'briard', 'buhund', 'bulldog', 'bullterrier', 'cattledog', 'chihuahua', 'chow', 'clumber', 'cockapoo', 'collie', 'coonhound', 'corgi', 'cotondetulear', 'dachshund', 'dalmatian', 'dane', 'deerhound', 'dhole', 'dingo', 'doberman', 'elkhound', 'entlebucher', 'eskimo', 'finnish', 'frise', 'germanshepherd', 'greyhound', 'groenendael', 'havanese', 'hound', 'husky', 'keeshond', 'kelpie', 'komondor', 'kuvasz', 'labradoodle', 'labrador', 'leonberg', 'lhasa', 'malamute', 'malinois', 'maltese', 'mastiff', 'mexicanhairless', 'mix', 'mountain', 'newfoundland', 'otterhound', 'ovcharka', 'papillon', 'pekinese', 'pembroke', 'pinscher', 'pitbull', 'pointer', 'pomeranian', 'poodle', 'pug', 'puggle', 'pyrenees', 'redbone', 'retriever', 'ridgeback', 'rottweiler', 'saluki', 'samoyed', 'schipperke', 'schnauzer', 'setter', 'sharpei', 'sheepdog', 'shiba', 'shihtzu', 'spaniel', 'springer', 'stbernard', 'terrier', 'tervuren', 'vizsla', 'waterdog', 'weimaraner', 'whippet', 'wolfhound', ]
 var dogTemperamentsArray = ['active', 'adaptable', 'affectionate', 'aggressive', 'agile', 'alert', 'assertive', 'athletic', 'attentive', 'bold', 'bossy', 'brave', 'bright', 'bubbly', 'calm', 'cat-like', 'cautious', 'charming', 'cheerful', 'clever', 'clownish', 'companionable', 'confident', 'courageous', 'devoted', 'dignified', 'docile', 'dominant', 'eager', 'easy-going', 'energetic', 'even tempered', 'extroverted', 'faithful', 'familial', 'fearless', 'friendly', 'fun-loving', 'gentle', 'good-natured', 'happy', 'hard-working', 'hardy', 'independent', 'inquisitive', 'intelligent', 'joyful', 'keen', 'kind', 'lively', 'loving', 'loyal', 'mischievous', 'obedient', 'opinionated', 'outgoing', 'patient', 'playful', 'protective', 'proud', 'quick', 'quiet', 'rational', 'receptive', 'reserved', 'responsive', 'self-assured', 'self-confidence', 'sociable', 'spirited', 'spunky', 'stable', 'steady', 'strong', 'strong-willed', 'stubborn', 'suspicious', 'sweet-tempered', 'tenacious', 'territorial', 'tolerant', 'trainable', 'vocal', 'watchful']
 
-// fetch(postmanAPIURL)
-// 	.then((res) => res.json())
-// 	.then((data) => {
-// 		console.log(data)
-
-// 		const jsonToString = JSON.stringify(data[1].breed_group)
-// 		console.log('jsonToString', jsonToString)
-
 var options
 document.addEventListener('DOMContentLoaded', function (e) {
 	e.preventDefault();
@@ -225,12 +217,6 @@ function generateDogName() {
 	var dogName = [ 'Abby', 'Ace', 'Addie', 'Adele', 'Annie', 'Apollo', 'Aspen', 'Bailey', 'Beamer', 'Bear', 'Belle', 'Bella', 'Birdie', 'Bling', 'Blue', 'Bogey', 'Body', 'Boomer', 'Bowen', 'Breeze', 'Brie', 'Brody', 'Buzz', 'Callaway', 'Casey', 'Cash', 'Catcher', 'Chaos', 'Chase', 'Chili', 'CiCi', 'Cody', 'Cole', 'Comet', 'Cooper', 'Cruise', 'Crush', 'Daisy', 'Dare', 'Dash', 'Dawson', 'Dazzle', 'Demi', 'Denali', 'Diva', 'Dixie', 'Echo', 'Eli', 'Ellie', 'Emmy', 'Evie', 'Finn', 'Flash', 'Frankie', 'Frisco', 'Gator', 'Georgia', 'Ginger', 'Grace', 'Haley', 'Happy', 'Harley', 'Hattie', 'Hope', 'Hunter', 'Indy', 'Jack', 'Jamie', 'Jax', 'Jazz', 'Jenna', 'Jersey', 'Jet', 'Jinx', 'JoJo', 'Josie', 'Joy', 'Juno', 'Karma', 'Kenzi', 'Kiva', 'Kona', 'Kyra', 'Lacie', 'Lark', 'Laser', 'Latte', 'Levi', 'Lilly', 'Linx', 'Logan', 'Lucy', 'Luke', 'Max', 'Mia', 'Mojo', 'Molly', 'Murphy', 'Nike', 'Nova', 'Obie', 'Ollie', 'Peach', 'Penny', 'Pepper', 'Piper', 'Prada', 'Ranger', 'Raven', 'Reggie', 'Remington', 'Riley', 'Ripley', 'Riot', 'River', 'Roxie', 'Ruby', 'Rumor', 'Salsa', 'Scarvart', 'Scout', 'Shadow', 'Shiloh', 'Skye', 'Slater', 'Sophie', 'Spark', 'Spencer', 'Spirit', 'Spring', 'Star', 'Storm', 'Strider', 'Summer', 'Tally', 'Tango', 'Tank', 'Taylor', 'Tease', 'Tessa', 'Token', 'Tori', 'Tripp', 'Trooper', 'Tucker', 'Tux', 'Whip', 'Wyatt', 'Zeke', 'Zip', ]
 
 	var genName = capFirst(dogName[getRandomInt(0, dogName.length + 1)]) + ' ';
-	document.getElementById('random_name').innerHTML = genName;
+	document.getElementById('random_name').innerHTML = `<strong id="strong_name">${genName}<strong>`;
 
 }
-//end functions for dog name generation
-
-//TODO: take user input on breed group
-//TODO: fetch data
-//TODO: determine where in the array the breed group lies
-//TODO: run against array and compare and load dog

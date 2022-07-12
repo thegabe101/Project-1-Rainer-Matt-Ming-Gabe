@@ -15,9 +15,11 @@ body {
 	padding: 0 80px;
 	margin: auto;
 }
+
 section {
 	padding: 50px 0;
 }
+
 section .title {
 	position: relative;
 	text-align: center;
@@ -28,15 +30,18 @@ section .title {
 	font-family: 'Ubuntu', sans-serif;
 	color: black;
 }
+
 .about .about-content {
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: space-between;
 	align-items: center;
 }
+
 .about .about-content .left {
 	width: 50%;
 }
+
 .about .about-content .right {
 	display: flex;
 	border: 3px black solid;
@@ -50,17 +55,20 @@ section .title {
 	object-fit: cover;
 	justify-content: center;
 }
+
 .about .about-content .right .text {
 	display: inline;
 	font-size: 30px;
 	font-weight: 900;
 	object-fit: cover;
 }
+
 .about .about-content .left img {
 	width: 100%;
 	object-fit: cover;
 	border-radius: 20px;
 }
+
 .content {
 	height: 80%;
 	width: 80%;

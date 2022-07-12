@@ -7,12 +7,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>BuildYourDog</title>
   <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="./assets/css/style.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" />
   <link rel="stylesheet" href="./assets/css/inputs.css" />
 </head>
-
 <body>
-  <div class="container">
+  <nav>
+    <div class="nav-wrapper #ffb300 amber darken-1">
+      <a href="#" class="brand-logo"></a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+  <div class="asdf">
+    <div class="container">
     <div class="nameGen title" id="nameGenerator">Choose a Breed & Generate Name!</div>
     <input id="nameGenBtn" type="button" value="Names for your doggo!" onclick="generateDogName();" />
     <h3 id="random_name"></h3>
@@ -111,6 +121,7 @@
           <input type="button" value="Submit" id="fetch-button" />
         </div>
     </form>
+  </div>
   </div>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
     integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
