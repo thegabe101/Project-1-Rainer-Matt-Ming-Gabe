@@ -31,6 +31,14 @@ section .title {
 	color: black;
 }
 
+section .doggyName {
+	position: relative;
+	text-align: center;
+	font-size: 40px;
+	font-weight: 700;
+	font-family: 'Ubuntu', sans-serif;
+}
+
 .about .about-content {
 	display: flex;
 	flex-wrap: wrap;
