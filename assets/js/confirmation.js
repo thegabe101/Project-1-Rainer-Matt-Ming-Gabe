@@ -123,7 +123,6 @@ function fetchWikiExtract(wikiTitle) {
 	console.log(wikiContent)
 	$('.title').text(title)
 	document.getElementById('wikiContentP').textContent = wikiContent
-	// localStorage.clear()
 }
 
 

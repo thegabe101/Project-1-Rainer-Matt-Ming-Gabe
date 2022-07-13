@@ -46,16 +46,12 @@ function getApi() {
 				var dogSize = document.getElementById('doggoSize')
 				// change dogSizeValue to dogSizeValueCategory ex. small med large -MHH 7/10/2022
 				var dogSizeValueCategory = dogSize.options[dogSize.selectedIndex].value
-				// console.log(dogSizeValueCategory)
 				if (dogSizeValueCategory == 'Medium') {
 					dogSizeValueInteger = medium
-					// console.log(dogSizeValueInteger)
 				} else if (dogSizeValueCategory === 'Small') {
 					dogSizeValueInteger = small
-					// console.log(dogSizeValueInteger)
 				} else {
 					dogSizeValueInteger = large
-					// console.log(dogSizeValueInteger)
 				}
 			}
 			
@@ -83,7 +79,6 @@ function getApi() {
 				var arrayWeightData = stringWeightData.split(' ', 5)
 				var stringLifeSpan = cleanedData[i].life_span
 				var parsedLifeSpan = parseInt(stringLifeSpan)
-				// console.log(arrayWeightData)
 				if (arrayWeightData.length < 2) {
 					var weightValue = arrayWeightData[0]
 					breed.weight = parseInt(weightValue)
