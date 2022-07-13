@@ -3,6 +3,7 @@
 	margin: 0;
 	box-sizing: border-box;
 }
+
 :root {
 	--primary: #1e1e1e;
 	--dark: #121212;
@@ -10,14 +11,17 @@
 	--gray: #1d1d1d;
 	--mild: #b9b8b8;
 }
+
 .h3 {
 	text-align: left;
 	font-size: 26px;
 }
+
 .wrapper {
 	width: 1170px;
 	margin: auto;
 }
+
 header {
 	background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
 		url('../images/Dog.jpg');
@@ -26,14 +30,17 @@ header {
 	background-position: center center;
 	position: relative;
 }
+
 .nav-area {
 	float: right;
 	list-style: none;
 	margin-top: 30px;
 }
+
 .nav-area li {
 	display: inline-block;
 }
+
 .nav-area li a {
 	color: #ffffff;
 	text-decoration: none;
@@ -41,11 +48,13 @@ header {
 	font-family: sans-serif;
 	font-size: 14px;
 }
+
 .nav-area li a:hover {
 	background: #ffffff;
 	color: #333;
 	height: auto;
 }
+
 .logo img {
 	width: 100px;
 	float: left;
@@ -53,6 +62,7 @@ header {
 	border-radius: 50px;
 	margin-top:25px;
 }
+
 .welcome-text {
 	position: absolute;
 	width: 600px;
@@ -60,12 +70,14 @@ header {
 	margin: 20% 30%;
 	text-align: center;
 }
+
 .welcome-text h1 {
 	text-align: center;
 	color: #ffffff;
 	text-transform: uppercase;
 	font-size: 60px;
 }
+
 .welcome-text a {
 	border: 1px solid #ffffff;
 	padding: 10px 25px;
@@ -76,6 +88,7 @@ header {
 	display: inline-block;
 	color: #ffffff;
 }
+
 .welcome-text a:hover {
 	background: #ffffff;
 	color: #333;
