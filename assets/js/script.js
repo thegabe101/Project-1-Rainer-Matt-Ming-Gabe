@@ -7,12 +7,12 @@ var dogBreeds = [ 'affenpinscher', 'african', 'airendale', 'akita', 'appenzeller
 var dogTemperamentsArray = ['active', 'adaptable', 'affectionate', 'aggressive', 'agile', 'alert', 'assertive', 'athletic', 'attentive', 'bold', 'bossy', 'brave', 'bright', 'bubbly', 'calm', 'cat-like', 'cautious', 'charming', 'cheerful', 'clever', 'clownish', 'companionable', 'confident', 'courageous', 'devoted', 'dignified', 'docile', 'dominant', 'eager', 'easy-going', 'energetic', 'even tempered', 'extroverted', 'faithful', 'familial', 'fearless', 'friendly', 'fun-loving', 'gentle', 'good-natured', 'happy', 'hard-working', 'hardy', 'independent', 'inquisitive', 'intelligent', 'joyful', 'keen', 'kind', 'lively', 'loving', 'loyal', 'mischievous', 'obedient', 'opinionated', 'outgoing', 'patient', 'playful', 'protective', 'proud', 'quick', 'quiet', 'rational', 'receptive', 'reserved', 'responsive', 'self-assured', 'self-confidence', 'sociable', 'spirited', 'spunky', 'stable', 'steady', 'strong', 'strong-willed', 'stubborn', 'suspicious', 'sweet-tempered', 'tenacious', 'territorial', 'tolerant', 'trainable', 'vocal', 'watchful']
 
 var options
-document.addEventListener('DOMContentLoaded', function (e) {
-	e.preventDefault();
-	var elems = document.querySelectorAll('.dropdown-trigger');
-	var instances = M.Dropdown.init(elems);
+// document.addEventListener('DOMContentLoaded', function (e) {
+// 	e.preventDefault();
+// 	var elems = document.querySelectorAll('.dropdown-trigger');
+// 	var instances = M.Dropdown.init(elems);
 
-})
+// })
 
 function autocomplete(inp, arr) {
 	var currentFocus;
