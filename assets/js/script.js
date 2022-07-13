@@ -215,4 +215,5 @@ function generateDogName() {
 
 	var genName = capFirst(dogName[getRandomInt(0, dogName.length + 1)]) + ' ';
 	document.getElementById('random_name').innerHTML = `<strong id="strong_name">${genName}<strong>`;
+	localStorage.setItem('gennedName', genName)
 }

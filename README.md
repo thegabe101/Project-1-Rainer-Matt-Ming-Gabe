@@ -1,5 +1,8 @@
 # Dog Breed Finder
 
+- Deployed URL: https://thegabe101.github.io/Project-1-Rainer-Matt-Ming-Gabe/
+- Repo URL: https://github.com/thegabe101/Project-1-Rainer-Matt-Ming-Gabe
+
 ## Table of Contents
 
 - [Description](#description)
@@ -56,8 +59,15 @@ THEN I am taken to the results page with a photo of that breed type and a Wiki a
 
 ## Screenshots
 
-- ![Alt= Screenshot showing The Dog API landing page]
+- ![Alt= Screenshot showing The Dog CEO API landing page](./screenshots/screenshot6.jpg)
+- ![Alt= Screenshot showing the Postman Dog API landing page](./screenshots/screenshot7.jpg)
+- ![Alt= Screenshot showing the Wikipedia REST API landing page](./screenshots/screenshot8.jpg)
+- ![Alt= Screenshot showing Dog For You landing page](./screenshots/screenshot1.jpg)
+- ![Alt= Screenshot showing Dog For You contact page](./screenshots/screenshot2.jpg)
+- ![Alt= Screenshot showing Dog For You input page](./screenshots/screenshot3.jpg)
+- ![Alt= Screenshot showing Dog For You results page](./screenshots/screenshot4.jpg)
+- ![Alt= Screenshot showing Dog For You confirmation page](./screenshots/screenshot5.jpg)
 
 ## Credits
 
-- The creation of this website would not have been possible without the hard work of the developers and the educators that support them.
+- The creation of this website would not have been possible without the hard work of the developers and the educators that support them in UW Fullstack's Coding Bootcamp Program.

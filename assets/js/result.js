@@ -9,9 +9,12 @@ function loadChooseABreed() {
 	console.log(breedName)
 	var imgBreed = `https://dog.ceo/api/breed/${breedName}/images/random`
     var wikiContent = localStorage.getItem('wiki')
+	var nameGenn = localStorage.getItem('gennedName')
 	console.log(wikiContent)
 	$('.title').text(title)
 	document.getElementById('wikiContentP').textContent = wikiContent
+	$('.doggyName').text(nameGenn)
+	
 
 	if (doggyImage == null) {
 		fetch(imgBreed)
