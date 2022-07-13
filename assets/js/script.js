@@ -88,12 +88,12 @@ function autocomplete(inp, arr) {
 		closeAllLists(e.target);
 	})
 } 
+
 // This Checks if ID breedInput is available then do the autocomplete
 // Autocompvare function will only run in inputs.html
 if (document.getElementById('breedInput')) {
 	autocomplete(document.getElementById('breedInput'), dogBreeds);
 }
-
 
 // If choose a breed form exist, goes to result page and execute wikipedia search
 if (document.getElementById('wikiDogBtn')) {
@@ -114,13 +114,11 @@ if (document.getElementById('wikiDogBtn')) {
 	})
 }
 
-// search the dog breed group's name in wikipedia search list, and stores in breed group's name for random image in result page.
-
 if (document.getElementById('temperamentInput')) {
 	autocomplete(document.getElementById('temperamentInput'), dogTemperamentsArray)
 }
-//breedgROUP = TEXT
 
+// search the dog breed group's name in wikipedia search list, and stores in breed group's name for random image in result page.
 function wikiSearchBreed(breedGroup) {
 	// the dog breed group's name will have %20 between spacing (wiki requirement), and add (dog) for precision
 	breedGroup = breedGroup.split(' ').join('%20') +('(dog)');
@@ -196,13 +194,12 @@ function fetchWikiExtract(wikiTitle) {
 			// localStorage the wikipedia content for result page
 			localStorage.setItem('wiki', resultWikiText);
 			// go to results.html page
-			window.location.href= 'results.html';
+			setInterval(function () {window.location.href = 'results.html'}, 1000);
 		})
 		.catch((error) => {
 			console.log(error);
 		})
 }
-
 
 //functions for dog name generation
 function capFirst(string) {
@@ -218,5 +215,4 @@ function generateDogName() {
 
 	var genName = capFirst(dogName[getRandomInt(0, dogName.length + 1)]) + ' ';
 	document.getElementById('random_name').innerHTML = `<strong id="strong_name">${genName}<strong>`;
-
 }
