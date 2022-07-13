@@ -114,4 +114,17 @@ function fetchWikiExtract(wikiTitle) {
 		.catch((error) => {
 			console.log(error)
 		})
+		var image2 = document.createElement('img') 
+	if (doggyImage != "") {
+		image2.src = doggyImage
+		document.getElementById('dogImage').appendChild(image2)
+	}
+	var wikiContent = localStorage.getItem('wiki')
+	console.log(wikiContent)
+	$('.title').text(title)
+	document.getElementById('wikiContentP').textContent = wikiContent
+	// localStorage.clear()
 }
+
+
+
