@@ -22,6 +22,7 @@ function loadChooseABreed() {
 			}
         })
 	var image2 = document.createElement('img')
+	console.log(doggyImage);
 	if (doggyImage != "") {
 		image2.src = doggyImage
 		document.getElementById('dogImage').appendChild(image2)
