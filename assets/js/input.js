@@ -54,7 +54,7 @@ function getApi() {
 					dogSizeValueInteger = large
 				}
 			}
-			
+
 			findDogSizeValue()
 
 			//FUNCTION Added 10:03 Am 7/10/2022 will test. -MH
@@ -107,7 +107,7 @@ function getApi() {
 			console.log(includedBreeds)
 
 			includedBreeds = includedBreeds.filter((breed) => {
-				return parsedLifeSpan >= dogMinimumAgeInteger
+				return parseInt(breed.life_span) >= dogMinimumAgeInteger
 			})
 			var chosenTemperament = localStorage.getItem('temperament_Value')
 			includedBreeds = includedBreeds.filter((breed) => {
