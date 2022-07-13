@@ -196,7 +196,7 @@ function fetchWikiExtract(wikiTitle) {
 			// localStorage the wikipedia content for result page
 			localStorage.setItem('wiki', resultWikiText);
 			// go to results.html page
-			window.location.href= 'results.html';
+			setInterval(function () {window.location.href = 'results.html'}, 1000);
 		})
 		.catch((error) => {
 			console.log(error);
